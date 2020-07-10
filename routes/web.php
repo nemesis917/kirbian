@@ -28,6 +28,10 @@ Route::group(['prefix' => 'sistema/usuario/', 'middleware' => 'auth'], function 
     Route::post('cambiar-clave', 'usersController@jq_clave');
 });
 
+Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => 'auth'], function () {
+    Route::get('/', 'catalogoController@index')->name('sistema.catalogo.index');
+});
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
