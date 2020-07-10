@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Catalogo;
 
 class catalogoController extends Controller
 {
@@ -14,7 +15,11 @@ class catalogoController extends Controller
      */
     public function index()
     {
-        return view("sistemas.catalogo.index");
+        //consulto el listado de los gardiner
+        $cat = Catalogo::select("id", "nombres")->get();
+
+        //envio la captura a la vista
+        return view("sistemas.catalogo.index")->with('catalogo', $cat);
     }
 
     /**

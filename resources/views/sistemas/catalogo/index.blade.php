@@ -10,7 +10,9 @@
                 <label for="gardiner">Selecciona un Gardiner</label>
                 <select  id="seleccion" class="custom-select">
                     <option>Seleccione...</option>
-                    <option value="" class="form-control">Ejemplo</option>
+                    @foreach ($catalogo as $cat)
+                    <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
