@@ -87,4 +87,9 @@ class catalogoController extends Controller
     {
         //
     }
+
+    public function jq_gardiner(Request $request){
+        dd($request->id);
+    }
+
 }
