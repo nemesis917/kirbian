@@ -29,18 +29,18 @@ class Jeroglificos extends Migration
             $table->bigIncrements('id');
             $table->string('ruta_imagen', 100);
             $table->string('referencia', 60);
-            $table->unsignedBigInteger('jeroglificos_id');
+            $table->unsignedBigInteger('jeroglifico_id');
 
-            $table->foreign('jeroglificos_id')->references('id')->on('jeroglificos');
+            $table->foreign('jeroglifico_id')->references('id')->on('jeroglificos');
             $table->timestamps();
         });
 
         Schema::create('descripcion', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('descripcion');
-            $table->unsignedBigInteger('jeroglificos_id');
+            $table->unsignedBigInteger('jeroglifico_id');
 
-            $table->foreign('jeroglificos_id')->references('id')->on('jeroglificos');
+            $table->foreign('jeroglifico_id')->references('id')->on('jeroglificos');
             $table->timestamps();
         });
 

@@ -31,6 +31,13 @@ Route::group(['prefix' => 'sistema/usuario/', 'middleware' => 'auth'], function 
 Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => 'auth'], function () {
     Route::get('/', 'catalogoController@index')->name('sistema.catalogo.index');
     Route::post('valorGardiner','catalogoController@jq_gardiner');
+    //Route::post('/cargar-catalogo', 'catalogoController@store')->name('sistema.catalogo.store');
+
+});
+
+Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], function () {
+    Route::post('guardar-cambios','jeroglificoController@store')->name('sistema.jeroglifico.store');
+
 });
 
 
