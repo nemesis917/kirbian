@@ -43,30 +43,62 @@ class jeroglificoController extends Controller
 
         //Si se ha ingresado la primera imagen
         if ($request->file('imagen1')) {
-            //Se define una variable para abreviar
-            $image = $request->file('imagen1'); 
+
             //Anexamos el id para la carpeta
             $idCatalogo = $jero->catalogo_id;
-            //Definimos el tamaño de la imagen
-            $size1 = "300";
-            $size2 = "300";
-            //tomamos la extension de la imagen y nos aseguramos que es permitida
-            $extension = $image->getClientOriginalExtension();
-            //creamos un nombre
-            $imgName = rand(1,999)."-".$request->gardiner."-".$idCatalogo."-".rand(1,999).".".$extension;
+            //Se define una variable para abreviar
+            $image = $request->file('imagen1'); 
 
-
-            $nombreGuardado = $this->guardarImagenResize($image, $size1, $size2, $imgName, $idCatalogo, $extension);
+            $nombreGuardado = $this->guardarImagenResize($image, $idCatalogo);
 
 
             //carga la primera imagen en la tabla imagen_jeroglifico
             $jero->imagenes_jeroglificos()->create(
                 [
                 'ruta_imagen' => $nombreGuardado,
-                'referencia' => 'img_jero1'               
+                'referencia' => 'img_jeroglifico'               
                 ]);
         }
-        
+
+        //Si se ha ingresado la primera imagen
+        if ($request->file('imagen2')) {
+
+            //Anexamos el id para la carpeta
+            $idCatalogo = $jero->catalogo_id;
+            //Se define una variable para abreviar
+            $image = $request->file('imagen2'); 
+
+            $nombreGuardado = $this->guardarImagenResize($image, $idCatalogo);
+
+
+            //carga la primera imagen en la tabla imagen_jeroglifico
+            $jero->imagenes_jeroglificos()->create(
+                [
+                'ruta_imagen' => $nombreGuardado,
+                'referencia' => 'img_cursivo'               
+                ]);
+        }
+
+        //Si se ha ingresado la primera imagen
+        if ($request->file('imagen3')) {
+
+            //Anexamos el id para la carpeta
+            $idCatalogo = $jero->catalogo_id;
+            //Se define una variable para abreviar
+            $image = $request->file('imagen3'); 
+
+            $nombreGuardado = $this->guardarImagenResize($image, $idCatalogo);
+
+
+            //carga la primera imagen en la tabla imagen_jeroglifico
+            $jero->imagenes_jeroglificos()->create(
+                [
+                'ruta_imagen' => $nombreGuardado,
+                'referencia' => 'img_Hieratico'               
+                ]);
+        }
+
+
     }
 
     public function show()
@@ -89,9 +121,12 @@ class jeroglificoController extends Controller
 
     }
 
-    public function guardarImagenResize($image,  $size1, $size2, $imgName,$idCatalogo, $extension){
+    public function guardarImagenResize($image, $idCatalogo){
 
-
+            //tomamos la extension de la imagen y nos aseguramos que es permitida
+            $extension = $image->getClientOriginalExtension();
+            //creamos un nombre
+            $imgName = rand(1,999)."-jero-".$idCatalogo."-".rand(1,999).".".$extension;
         if ($extension == "png" || $extension == "jpg") {
             //creamos la ruta;
             $rutaImg = 'imagenes/catalogo/' . $idCatalogo;
@@ -99,8 +134,19 @@ class jeroglificoController extends Controller
             if (!file_exists($rutaImg)) {
                 mkdir($rutaImg, 0644, true);
             }
-            //Redefinimos el tamaño y guardamos la imagen modificada en la carpeta
-            Image::make($image)->resize($size1,$size2)->save($rutaImg . "/" . $imgName);
+
+            //Estoy metiendo en un listado las caracteristicas de la imagen (Alto y ancho)
+            list($ancho, $alto, $tipo, $atributos) = getimagesize($image);
+
+            //Redefinimos el tamaño y guardamos la imagen modificada en la carpeta segun la posicion de la imagen
+            if($ancho > $alto){
+                $file = Image::make($image)->resize(460, 340)->save($rutaImg . "/" . $imgName);
+            }elseif($ancho < $alto){
+                $file = Image::make($image)->resize(340, 460)->save($rutaImg . "/" . $imgName);
+            }elseif($ancho == $alto){
+                $file = Image::make($image)->resize(340, 340)->save($rutaImg . "/" . $imgName);
+            }
+
 
             return $rutaImg . "/" . $imgName;
         } else {
