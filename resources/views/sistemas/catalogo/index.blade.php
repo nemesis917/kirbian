@@ -86,7 +86,7 @@
             </p>
         </div>
         <div class="col-9" style="border: 1px solid black">
-        prueba
+        <div id="guia"></div>
             
         </div>
     </div>

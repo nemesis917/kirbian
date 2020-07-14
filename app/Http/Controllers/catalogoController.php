@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Catalogo;
 
 
@@ -53,7 +54,8 @@ class catalogoController extends Controller
 
 
     public function jq_gardiner(Request $request){
-        dd($request->id);
+        $datos = DB::table('vw_catalogo_jeroglifico')->where('catalogo_id', $request->id)->get();
+        return response()->json($datos);
     }
 
 }
