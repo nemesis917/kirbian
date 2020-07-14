@@ -36,7 +36,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @if(Auth::check())
+                            @if(Auth::User()->name=='admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('sistema.usuario.index') }}">Usuarios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('sistema.usuario.index') }}">Catalogo</a>
+                                </li>
+                            @endif
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
