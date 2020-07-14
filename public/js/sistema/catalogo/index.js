@@ -1,9 +1,13 @@
 $(document).ready(function(){
 
     $("#seleccion").change(function(){
+
         if ($(this).val() == "Seleccione...") {
             return false;
-        } else {
+        } 
+        else 
+        {
+
             $.ajax({
                 url: "../sistema/catalogo/valorGardiner",
                 type: "post",
@@ -24,8 +28,12 @@ $(document).ready(function(){
                             }
                         }
                     }
+
                 },
-                error: function () {
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
                     alert("No");
         
                 }
