@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::check())
-                            @if(Auth::User()->name=='admin')
+                            @if(Auth::User()->level=='administrador')
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('sistema.usuario.index') }}">Usuarios</a>
                                 </li>
