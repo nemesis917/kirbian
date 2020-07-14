@@ -18,17 +18,6 @@ $(document).ready(function(){
                         let catalogo= templateCatalogo(val)
                         $("#guia").append(catalogo);
                     });
-                    // for (let index = 0; index < resultado.length; index++) {
-                    //     var carta ="";
-                    //     for (let index = 0; index < resultado.length; index++) {
-                    //         if (resultado[index].id == "") {
-                    //             $("#guia").html("");
-                    //         } else {
-                    //             carta += '<div class="card float-left" style="width: 18rem;"><img src="../' + resultado[index].ruta_imagen + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + resultado[index].gandiner + '</h5><p class="card-text">'+ resultado[index].transliteracion +'</p><a href="#" class="btn btn-primary">Saber más...</a>';
-                    //             $("#guia").html(carta);    
-                    //         }
-                    //     }
-                    // }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR)
@@ -44,7 +33,36 @@ $(document).ready(function(){
         }
     });
 
-    
+
+    $(document).on('click', '#ver', function(){
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });
@@ -68,13 +86,14 @@ function templateCatalogo(catalogoItem){
         <div class="card mb-4 shadow-sm">
             <img src="../${ruta_imagen}" class="img-fluid size-img-catalogo" alt="Imagenes de Catalogo - ${gandiner}">
             <div class="card-body">
-                <p class="card-text">${transliteracion}</p>
+                <p class="card-text">Gandiner: <h3><b>${gandiner}</b></h3></p>
+                <p class="card-text">Transliteracion: ${transliteracion}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}"  data-toggle="modal" id="ver" data-target="#consultar">Consultar</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}">Editar</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}">Eliminar</button>
                     </div>
-                    <small class="text-muted">9 mins</small>
                 </div>
             </div>
         </div>

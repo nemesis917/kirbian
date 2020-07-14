@@ -216,7 +216,7 @@ CREATE TABLE `vw_catalogo_jeroglifico` (
 ,`transliteracion` varchar(30)
 ,`gandiner` varchar(12)
 ,`ruta_imagen` varchar(100)
-,`catalogo` bigint(20) unsigned
+,`catalogo_id` bigint(20) unsigned
 );
 
 -- --------------------------------------------------------
@@ -226,7 +226,7 @@ CREATE TABLE `vw_catalogo_jeroglifico` (
 --
 DROP TABLE IF EXISTS `vw_catalogo_jeroglifico`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_catalogo_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`imagenes_jeroglificos`.`ruta_imagen` AS `ruta_imagen`,`jeroglificos`.`catalogo_id` AS `catalogo` from ((`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) left join `imagenes_jeroglificos` on((`imagenes_jeroglificos`.`jeroglifico_id` = `jeroglificos`.`id`))) where (`imagenes_jeroglificos`.`referencia` = 'img_jeroglifico') ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_catalogo_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`imagenes_jeroglificos`.`ruta_imagen` AS `ruta_imagen`,`jeroglificos`.`catalogo_id` AS `catalogo_id` from ((`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) left join `imagenes_jeroglificos` on((`imagenes_jeroglificos`.`jeroglifico_id` = `jeroglificos`.`id`))) where (`imagenes_jeroglificos`.`referencia` = 'img_jeroglifico') ;
 
 --
 -- Índices para tablas volcadas
