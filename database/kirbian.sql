@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2020 a las 07:03:58
+-- Tiempo de generación: 15-07-2020 a las 22:22:17
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -108,7 +108,11 @@ INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, 
 (3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
 (4, 'si señores, solo tiene una sola imagen nada mas, no hay mas', 4, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
 (5, 'todas las fotostodas las fotostodas las fotostodas las fotostodas las fotostodas las fotos', 5, '2020-07-15 08:30:05', '2020-07-15 08:30:05'),
-(6, 'no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06');
+(6, 'no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
+(7, 'algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo', 7, '2020-07-15 21:55:05', '2020-07-15 21:55:05'),
+(8, 'sdgd gsgdgdg fgdf dgsgsdg', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
+(9, 'svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew', 10, '2020-07-15 22:38:29', '2020-07-15 22:38:29'),
+(10, 'dfgdf gdfg dfgdfg dfgdfgd gfdfd fsdfsd fffffff ffffff fffff fffff', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41');
 
 -- --------------------------------------------------------
 
@@ -156,7 +160,22 @@ INSERT INTO `imagenes_jeroglificos` (`id`, `ruta_imagen`, `referencia`, `jerogli
 (10, 'imagenes/catalogo/55/75-jero-55-96.png', '3', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
 (11, 'imagenes/catalogo/55/711-jero-55-896.png', '1', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
 (12, 'system/no-foto.jpg', '2', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
-(13, 'imagenes/catalogo/55/432-jero-55-885.png', '3', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06');
+(13, 'imagenes/catalogo/55/432-jero-55-885.png', '3', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
+(14, 'imagenes/catalogo/64/187-jero-64-417.png', '1', 7, '2020-07-15 21:55:06', '2020-07-15 21:55:06'),
+(15, 'system/no-foto.jpg', '2', 7, '2020-07-15 21:55:06', '2020-07-15 21:55:06'),
+(16, 'system/no-foto.jpg', '3', 7, '2020-07-15 21:55:06', '2020-07-15 21:55:06'),
+(17, 'imagenes/catalogo/58/464-jero-58-256.png', '1', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
+(18, 'system/no-foto.jpg', '2', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
+(19, 'system/no-foto.jpg', '3', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
+(20, 'imagenes/catalogo/69/226-jero-69-964.png', '1', 9, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
+(21, 'system/no-foto.jpg', '2', 9, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
+(22, 'system/no-foto.jpg', '3', 9, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
+(23, 'imagenes/catalogo/55/491-jero-55-702.png', '1', 10, '2020-07-15 22:38:30', '2020-07-15 22:38:30'),
+(24, 'system/no-foto.jpg', '2', 10, '2020-07-15 22:38:30', '2020-07-15 22:38:30'),
+(25, 'system/no-foto.jpg', '3', 10, '2020-07-15 22:38:30', '2020-07-15 22:38:30'),
+(26, 'imagenes/catalogo/66/445-jero-66-935.png', '1', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41'),
+(27, 'system/no-foto.jpg', '2', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41'),
+(28, 'system/no-foto.jpg', '3', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41');
 
 -- --------------------------------------------------------
 
@@ -185,7 +204,12 @@ INSERT INTO `jeroglificos` (`id`, `gandiner`, `transliteracion`, `sentido`, `nom
 (3, '2 imagenes', 'transliteracion 2', 'segundo significado', 'admin admin', 55, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
 (4, '1 imagen', 'solo una imagen', 'significa que tengo solo una imagen, que mas quiere que diga', 'admin admin', 55, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
 (5, 'All fotos', 'todas las fotos', 'todas las fotos', 'admin admin', 55, '2020-07-15 08:30:05', '2020-07-15 08:30:05'),
-(6, 'no cursivo', 'no cursivo', 'no cursivo', 'admin admin', 55, '2020-07-15 08:32:06', '2020-07-15 08:32:06');
+(6, 'no cursivo', 'no cursivo', 'no cursivo', 'admin admin', 55, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
+(7, 'algo', 'algo', 'algo', 'admin admin', 64, '2020-07-15 21:55:04', '2020-07-15 21:55:04'),
+(8, 'zapato', 'zapato zapatero', 'Lorem ipsum', 'admin admin', 58, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
+(9, 'svdvdvsd', 'svdvdvsdgsdgd', 'svdvdvsdgsdgd', 'admin admin', 69, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
+(10, 'siudosds', 'vpisdv hssd vihsp dvhi VIP HSI', 'pivhsvi psdvh psdv hspd vsipdvh ps dhvps div hpsd dhvp sd vhis pdvh psdispd vhspd ivhs dpivhsp vhiisdpv hsdp ivhsdipv hs pdvhsp dvhs ipd hvi psdh vsipdh  vsipdhv sipd vhsdvpiv', 'admin admin', 55, '2020-07-15 22:38:29', '2020-07-15 22:38:29'),
+(11, 'sdgdgdgsdgdg', 'sdsggdf gdf gdfdfg', 'dfgdfgdfg', 'admin admin', 66, '2020-07-15 22:40:41', '2020-07-15 22:40:41');
 
 -- --------------------------------------------------------
 
@@ -246,7 +270,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'bqsuEJjK1LRg6sROma8BY2s8FjwQvuwmGPpb288t', NULL, NULL);
+(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'vXMVlTnb6qdB1KgoEZH75R9yjzceQIWs8a3vvj9Y9VdxNimbjCN3YpAhXel2', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -379,7 +403,7 @@ ALTER TABLE `comentarios_jero`
 -- AUTO_INCREMENT de la tabla `descripcion`
 --
 ALTER TABLE `descripcion`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_comentario_jero`
@@ -391,13 +415,13 @@ ALTER TABLE `imagenes_comentario_jero`
 -- AUTO_INCREMENT de la tabla `imagenes_jeroglificos`
 --
 ALTER TABLE `imagenes_jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `jeroglificos`
 --
 ALTER TABLE `jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
