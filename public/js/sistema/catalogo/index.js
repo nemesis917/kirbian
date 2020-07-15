@@ -86,20 +86,25 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                console.log(resultado[0][0].descripcion);
+                console.log(resultado[0][0]);
 
-                // $("#gandiner").attr("value", "");
-                // $("#trasliteracion").attr("value", "");
-                // $("#significado").attr("value", "");
-                // $("#descripcion").attr("value", "");
-                // $("#imagenA").attr("value", "");
-                // $("#imagenB").attr("value", "");
-                // $("#imagenC").attr("value", "");
+                $("#gandiner").attr("value", "");
+                $("#trasliteracion").attr("value", "");
+                $("#significado").attr("value", "");
+                $("#descripcion").attr("value", "");
+                $("#seleccion1").attr("selected", "");
+                $("#imagenA").attr("value", "");
+                $("#imagenB").attr("value", "");
+                $("#imagenC").attr("value", "");
 
                 $("#gandiner1").attr("value", resultado[0][0].gandiner);
                 $("#transliteracion1").attr("value", resultado[0][0].transliteracion);
                 $("#significado1").attr("value", resultado[0][0].significado);
                 $("#mensajeDescripcion").html(resultado[0][0].descripcion);
+                if (resultado[0][0].catalogo_id == $("#seleccion1").val()) {
+                    //$("#seleccion1").attr("selected", "selected");
+                    $('#seleccion1').attr("selected", "selected").selectmenu('refresh', true);
+                }
                 
             },
             error: function (jqXHR, textStatus, errorThrown) {

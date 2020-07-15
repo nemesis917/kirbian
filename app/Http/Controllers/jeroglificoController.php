@@ -121,6 +121,7 @@ class jeroglificoController extends Controller
                 ]);
         }
 
+        return redirect()->route('sistema.catalogo.index')->with('message', "solicitud procesada");
 
     }
 
@@ -186,5 +187,5 @@ class jeroglificoController extends Controller
         $array = [$datos, $imagenes];
         return response()->json($array);
     }
-    
+
 }

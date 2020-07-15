@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-3" style="border: 1px solid black">
             <div class="form-group">
-                <label for="gardiner">Selecciona un Gardiner</label>
+                <label for="gardiner"><h4>Selecciona un Gardiner</h4></label>
                 <select  id="seleccion" class="custom-select">
                     <option>Seleccione...</option>
                     @foreach ($catalogo as $cat)
@@ -22,6 +22,13 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Cargar un catálogo
             </button>
+
+            @if (session('message'))
+                <script>alert('Se ha guardado la información satisfactoriamente')</script>
+            @endif
+                
+
+
             
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,15 +45,15 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="">Ingrese el Gardiner: </label>
-                                <input type="text" name="gardiner" class="form-control">
+                                <input type="text" name="gardiner" class="form-control" maxlength="12" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese la transliteración: </label>
-                                <input type="text" name="transliteracion" class="form-control">
+                                <input type="text" name="transliteracion" class="form-control" maxlength="30" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese el significado: </label>
-                                <input type="text" name="sentido" class="form-control">
+                                <input type="text" name="sentido" class="form-control" maxlength="180" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese su descripción: </label>
@@ -54,7 +61,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="gardiner">Selecciona un Gardiner</label>
-                                <select  name="seleccion" class="custom-select">
+                                <select  name="seleccion" class="custom-select" required>
                                     <option>Seleccione...</option>
                                     @foreach ($catalogo as $cat)
                                     <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
@@ -64,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la imagen principal (Jeroglífico)</label>
-                                <input type="file" name="imagen1" id="imagen1" class="form-control">
+                                <input type="file" name="imagen1" id="imagen1" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la 2da imagen  (Cursivo)</label>
@@ -158,10 +165,10 @@
                 </div>
                 <div class="form-group">
                     <label for="gardiner">Selecciona un Gardiner</label>
-                    <select id="seleccion1" name="seleccion" class="custom-select" required>
+                    <select name="seleccion" class="custom-select" required>
                         <option>Seleccione...</option>
                         @foreach ($catalogo as $cat)
-                        <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
+                        <option value="{{ $cat->id }}" id="seleccion1" >{{ $cat->nombres }}</option>
                         @endforeach
                     </select>
                     <br>
