@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2020 a las 18:55:04
+-- Tiempo de generación: 15-07-2020 a las 07:03:58
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -98,6 +98,18 @@ CREATE TABLE `descripcion` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `descripcion`
+--
+
+INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
+(1, 'Prueba Prueba Prueba Prueba Prueba', 1, '2020-07-15 00:12:43', '2020-07-15 00:12:43'),
+(2, 'descripcion del simbolo, el cual asumo es un texto mucho mas largo que el resto del documento, no se me ocurre la longitud pero asumo que es de un tamaño aproximado a esto', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
+(3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
+(4, 'si señores, solo tiene una sola imagen nada mas, no hay mas', 4, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
+(5, 'todas las fotostodas las fotostodas las fotostodas las fotostodas las fotostodas las fotos', 5, '2020-07-15 08:30:05', '2020-07-15 08:30:05'),
+(6, 'no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06');
+
 -- --------------------------------------------------------
 
 --
@@ -127,6 +139,25 @@ CREATE TABLE `imagenes_jeroglificos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `imagenes_jeroglificos`
+--
+
+INSERT INTO `imagenes_jeroglificos` (`id`, `ruta_imagen`, `referencia`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
+(1, 'imagenes/catalogo/55/370-jero-55-521.png', '1', 1, '2020-07-15 00:12:44', '2020-07-15 00:12:44'),
+(2, 'imagenes/catalogo/55/241-jero-55-70.png', '1', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
+(3, 'imagenes/catalogo/55/825-jero-55-509.png', '2', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
+(4, 'imagenes/catalogo/55/199-jero-55-502.png', '3', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
+(5, 'imagenes/catalogo/55/486-jero-55-666.png', '1', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
+(6, 'imagenes/catalogo/55/912-jero-55-942.png', '2', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
+(7, 'imagenes/catalogo/55/241-jero-55-203.png', '1', 4, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
+(8, 'imagenes/catalogo/55/396-jero-55-595.png', '1', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
+(9, 'imagenes/catalogo/55/509-jero-55-624.png', '2', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
+(10, 'imagenes/catalogo/55/75-jero-55-96.png', '3', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
+(11, 'imagenes/catalogo/55/711-jero-55-896.png', '1', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
+(12, 'system/no-foto.jpg', '2', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
+(13, 'imagenes/catalogo/55/432-jero-55-885.png', '3', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06');
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +174,18 @@ CREATE TABLE `jeroglificos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `jeroglificos`
+--
+
+INSERT INTO `jeroglificos` (`id`, `gandiner`, `transliteracion`, `sentido`, `nombre_usuario`, `catalogo_id`, `created_at`, `updated_at`) VALUES
+(1, 'Prueba', 'Prueba', 'Prueba', 'admin admin', 55, '2020-07-15 00:12:43', '2020-07-15 00:12:43'),
+(2, 'Gardiner', 'Transliteracion', 'Significa fertilidad, buenas energias y alegrias para la poblacion de esa epoca', 'admin admin', 55, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
+(3, '2 imagenes', 'transliteracion 2', 'segundo significado', 'admin admin', 55, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
+(4, '1 imagen', 'solo una imagen', 'significa que tengo solo una imagen, que mas quiere que diga', 'admin admin', 55, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
+(5, 'All fotos', 'todas las fotos', 'todas las fotos', 'admin admin', 55, '2020-07-15 08:30:05', '2020-07-15 08:30:05'),
+(6, 'no cursivo', 'no cursivo', 'no cursivo', 'admin admin', 55, '2020-07-15 08:32:06', '2020-07-15 08:32:06');
 
 -- --------------------------------------------------------
 
@@ -222,11 +265,35 @@ CREATE TABLE `vw_catalogo_jeroglifico` (
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `vw_ver_jeroglifico`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `vw_ver_jeroglifico` (
+`id` bigint(20) unsigned
+,`transliteracion` varchar(30)
+,`gandiner` varchar(12)
+,`descripcion` text
+,`significado` text
+,`catalogo_id` bigint(20) unsigned
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura para la vista `vw_catalogo_jeroglifico`
 --
 DROP TABLE IF EXISTS `vw_catalogo_jeroglifico`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_catalogo_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`imagenes_jeroglificos`.`ruta_imagen` AS `ruta_imagen`,`jeroglificos`.`catalogo_id` AS `catalogo_id` from ((`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) left join `imagenes_jeroglificos` on((`imagenes_jeroglificos`.`jeroglifico_id` = `jeroglificos`.`id`))) where (`imagenes_jeroglificos`.`referencia` = 'img_jeroglifico') ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_catalogo_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`imagenes_jeroglificos`.`ruta_imagen` AS `ruta_imagen`,`jeroglificos`.`catalogo_id` AS `catalogo_id` from ((`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) left join `imagenes_jeroglificos` on((`imagenes_jeroglificos`.`jeroglifico_id` = `jeroglificos`.`id`))) where (`imagenes_jeroglificos`.`referencia` = '1') ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `vw_ver_jeroglifico`
+--
+DROP TABLE IF EXISTS `vw_ver_jeroglifico`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_ver_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`descripcion`.`descripcion` AS `descripcion`,`jeroglificos`.`sentido` AS `significado`,`jeroglificos`.`catalogo_id` AS `catalogo_id` from (`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -312,7 +379,7 @@ ALTER TABLE `comentarios_jero`
 -- AUTO_INCREMENT de la tabla `descripcion`
 --
 ALTER TABLE `descripcion`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_comentario_jero`
@@ -324,13 +391,13 @@ ALTER TABLE `imagenes_comentario_jero`
 -- AUTO_INCREMENT de la tabla `imagenes_jeroglificos`
 --
 ALTER TABLE `imagenes_jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `jeroglificos`
 --
 ALTER TABLE `jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
