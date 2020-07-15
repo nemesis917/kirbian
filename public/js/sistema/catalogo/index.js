@@ -86,13 +86,13 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                console.log(resultado[0][0]);
+                console.log(resultado[2]);
 
                 $("#gandiner").attr("value", "");
                 $("#trasliteracion").attr("value", "");
                 $("#significado").attr("value", "");
                 $("#descripcion").attr("value", "");
-                $("#seleccion1").attr("selected", "");
+                //$("#seleccion1").attr("selected", "");
                 $("#imagenA").attr("value", "");
                 $("#imagenB").attr("value", "");
                 $("#imagenC").attr("value", "");
@@ -101,10 +101,17 @@ $(document).ready(function(){
                 $("#transliteracion1").attr("value", resultado[0][0].transliteracion);
                 $("#significado1").attr("value", resultado[0][0].significado);
                 $("#mensajeDescripcion").html(resultado[0][0].descripcion);
-                if (resultado[0][0].catalogo_id == $("#seleccion1").val()) {
-                    //$("#seleccion1").attr("selected", "selected");
-                    $('#seleccion1').attr("selected", "selected").selectmenu('refresh', true);
+                console.log(resultado[2][3].id);
+                for (let index = 0; index < resultado[2].length; index++) {
+                    
+                    if (resultado[0][0].catalogo_id == resultado[2][index].id) {
+                        $("#seleccion1-" + resultado[0][0].catalogo_id).attr("selected","selected");
+                    }
+                    
                 }
+
+
+
                 
             },
             error: function (jqXHR, textStatus, errorThrown) {

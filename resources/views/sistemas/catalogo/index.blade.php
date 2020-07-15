@@ -168,7 +168,7 @@
                     <select name="seleccion" class="custom-select" required>
                         <option>Seleccione...</option>
                         @foreach ($catalogo as $cat)
-                        <option value="{{ $cat->id }}" id="seleccion1" >{{ $cat->nombres }}</option>
+                        <option value="{{ $cat->id }}" id="seleccion1-{{ $cat->id }}" >{{ $cat->nombres }}</option>
                         @endforeach
                     </select>
                     <br>

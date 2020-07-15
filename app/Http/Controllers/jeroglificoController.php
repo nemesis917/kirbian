@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Jeroglifico;
 use App\Descripcion;
 use App\Imagen_jeroglifico;
+use App\Catalogo;
 use Image;
 
 class jeroglificoController extends Controller
@@ -134,7 +135,9 @@ class jeroglificoController extends Controller
     {
         $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
         $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
-        return response()->json([$datos, $imagenes]);
+        $catalogo = Catalogo::select('id', 'nombres')->get();
+
+        return response()->json([$datos, $imagenes, $catalogo]);
     }
 
     public function update()
