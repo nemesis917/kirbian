@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Jeroglifico;
 use App\Descripcion;
+use App\Imagen_jeroglifico;
 use Image;
 
 class jeroglificoController extends Controller
@@ -127,14 +129,16 @@ class jeroglificoController extends Controller
 
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-
+        $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
+        $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
+        return response()->json([$datos, $imagenes]);
     }
 
     public function update()
     {
-
+        dd("update");
     }
 
     public function destroy()
@@ -176,5 +180,11 @@ class jeroglificoController extends Controller
 
     }
 
-
+    public function jq_consultar(Request $request){
+        $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
+        $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
+        $array = [$datos, $imagenes];
+        return response()->json($array);
+    }
+    
 }

@@ -32,12 +32,16 @@ Route::group(['prefix' => 'sistema/usuario/', 'middleware' => 'auth'], function 
 Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => 'auth'], function () {
     Route::get('/', 'catalogoController@index')->name('sistema.catalogo.index');
     Route::post('valorGardiner','catalogoController@jq_gardiner');
-    Route::post('verJeroglifico', 'catalogoController@jq_consultar');
+    //Route::post('verJeroglifico', 'catalogoController@jq_consultar');
+
 
 });
 
 Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], function () {
     Route::post('guardar-cambios','jeroglificoController@store')->name('sistema.jeroglifico.store');
+    Route::post('modificar','jeroglificoController@edit')->name('sistema.jeroglifico.edit');
+    Route::post('modificando','jeroglificoController@update')->name('sistema.jeroglifico.update');
+    Route::post('verJeroglifico', 'jeroglificoController@jq_consultar');
 });
 
 Route::group(['prefix' => 'control',  'middleware' => 'auth'], function () {

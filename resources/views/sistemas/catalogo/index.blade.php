@@ -28,7 +28,7 @@
                 <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Jeroglífico</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -123,6 +123,68 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modificar Jeroglífico</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <form action="{{ route('sistema.jeroglifico.update') }}" method="post" enctype= "multipart/form-data">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Ingrese el Gardiner: </label>
+                    <input type="text" name="gandiner" id="gandiner1" value="" class="form-control" maxlength="12" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Ingrese la transliteración: </label>
+                    <input type="text" name="transliteracion" id="transliteracion1" maxlength="30" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Ingrese el significado: </label>
+                    <input type="text" name="significado" id="significado1" class="form-control" maxlength="180" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Ingrese su descripción: </label>
+                    <textarea name="descripcion" id="mensajeDescripcion" class="form-control" maxlength="220"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="gardiner">Selecciona un Gardiner</label>
+                    <select id="seleccion1" name="seleccion" class="custom-select" required>
+                        <option>Seleccione...</option>
+                        @foreach ($catalogo as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
+                        @endforeach
+                    </select>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="">Agregue la imagen principal (Jeroglífico)</label>
+                    <input type="file" name="imagen1" id="imagenA" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Agregue la 2da imagen  (Cursivo)</label>
+                    <input type="file" name="imagen2" id="imagenB" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Agregue la 3ra principal (Hierático)</label>
+                    <input type="file" name="imagen3" id="imagenC" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <input type="submit" class="btn btn-primary" value="Guardar datos">
+            </div>
+        </form>
+    </div>
     </div>
 </div>
 

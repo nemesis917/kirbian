@@ -36,7 +36,7 @@ $(document).ready(function(){
 
     $(document).on('click', '#ver', function(){
         $.ajax({
-            url: "../sistema/catalogo/verJeroglifico",
+            url: "../sistema/jeroglifico/verJeroglifico",
             type: "post",
             dataType: "json",
             data: {'id': $(this).val()},
@@ -46,10 +46,10 @@ $(document).ready(function(){
                 $("#img0").attr("src","../system/no-foto.jpg");
                 $("#img1").attr("src","../system/no-foto.jpg");
                 $("#img2").attr("src","../system/no-foto.jpg");
-                $("gandiner").html("");
-                $("trasliteracion").html("");
-                $("significado").html("");
-                $("descripcion").html("");
+                $("#gandiner").html("");
+                $("#trasliteracion").html("");
+                $("#significado").html("");
+                $("#descripcion").html("");
 
 
                 for (let index = 0; index < resultado[1].length; index++) {
@@ -77,7 +77,46 @@ $(document).ready(function(){
         });
     });
 
+    $(document).on('click', '#editar', function(){
+        
+        $.ajax({
+            url: "../sistema/jeroglifico/modificar",
+            type: "post",
+            dataType: "json",
+            data: {'id': $(this).val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (resultado) {
+                console.log(resultado[0][0].descripcion);
 
+                // $("#gandiner").attr("value", "");
+                // $("#trasliteracion").attr("value", "");
+                // $("#significado").attr("value", "");
+                // $("#descripcion").attr("value", "");
+                // $("#imagenA").attr("value", "");
+                // $("#imagenB").attr("value", "");
+                // $("#imagenC").attr("value", "");
+
+                $("#gandiner1").attr("value", resultado[0][0].gandiner);
+                $("#transliteracion1").attr("value", resultado[0][0].transliteracion);
+                $("#significado1").attr("value", resultado[0][0].significado);
+                $("#mensajeDescripcion").html(resultado[0][0].descripcion);
+                
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("No de ver");
+            }
+        });
+
+
+
+    });
 
 
 
@@ -129,8 +168,8 @@ function templateCatalogo(catalogoItem){
                 <p class="card-text">Transliteracion: ${transliteracion}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}"  data-toggle="modal" id="ver" data-target="#consultar">Consultar</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}">Editar</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" data-toggle="modal" id="ver" data-target="#consultar">Consultar</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" data-toggle="modal" id="editar" data-target="#modificar">Editar</button>
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}">Eliminar</button>
                     </div>
                 </div>
