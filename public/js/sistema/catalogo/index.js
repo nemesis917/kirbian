@@ -35,7 +35,35 @@ $(document).ready(function(){
 
 
     $(document).on('click', '#ver', function(){
+        console.log($(this).val());
 
+        $.ajax({
+            url: "../sistema/catalogo/verJeroglifico",
+            type: "post",
+            dataType: "json",
+            data: {'id': $(this).val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (resultado) {
+                console.log(resultado)
+                // $("#guia").html("")
+                // console.log(resultado)
+                // $.each(resultado, function(index, val) {
+                //      /* iterate through array or object */
+                //     let catalogo= templateCatalogo(val)
+                //     $("#guia").append(catalogo);
+                // });
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("No de ver");
+            }
+        });
     });
 
 
