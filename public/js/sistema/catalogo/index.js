@@ -35,8 +35,6 @@ $(document).ready(function(){
 
 
     $(document).on('click', '#ver', function(){
-        console.log($(this).val());
-
         $.ajax({
             url: "../sistema/catalogo/verJeroglifico",
             type: "post",
@@ -44,14 +42,27 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                console.log(resultado)
-                // $("#guia").html("")
-                // console.log(resultado)
-                // $.each(resultado, function(index, val) {
-                //      /* iterate through array or object */
-                //     let catalogo= templateCatalogo(val)
-                //     $("#guia").append(catalogo);
-                // });
+
+                $("#img0").attr("src","../system/no-foto.jpg");
+                $("#img1").attr("src","../system/no-foto.jpg");
+                $("#img2").attr("src","../system/no-foto.jpg");
+                $("gandiner").html("");
+                $("trasliteracion").html("");
+                $("significado").html("");
+                $("descripcion").html("");
+
+
+                for (let index = 0; index < resultado[1].length; index++) {
+                    $("#img" + index).attr("src","../" + resultado[1][index].ruta_imagen);
+                }
+
+                $("#gandiner").html(resultado[0][0].gandiner);
+                $("#trasliteracion").html(resultado[0][0].transliteracion);
+                $("#significado").html(resultado[0][0].significado);
+                $("#descripcion").html(resultado[0][0].descripcion);
+
+
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR)

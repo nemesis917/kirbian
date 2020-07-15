@@ -56,7 +56,14 @@ class jeroglificoController extends Controller
             $jero->imagenes_jeroglificos()->create(
                 [
                 'ruta_imagen' => $nombreGuardado,
-                'referencia' => 'img_jeroglifico'               
+                'referencia' => '1'               
+                ]);
+        } else {
+            //De no tener imagen guarda una ruta pre-establecida
+            $jero->imagenes_jeroglificos()->create(
+                [
+                'ruta_imagen' => "system/no-foto.jpg",
+                'referencia' => '1'               
                 ]);
         }
 
@@ -75,7 +82,14 @@ class jeroglificoController extends Controller
             $jero->imagenes_jeroglificos()->create(
                 [
                 'ruta_imagen' => $nombreGuardado,
-                'referencia' => 'img_cursivo'               
+                'referencia' => '2'               
+                ]);
+        } else {
+            //De no tener imagen guarda una ruta pre-establecida
+            $jero->imagenes_jeroglificos()->create(
+                [
+                'ruta_imagen' => "system/no-foto.jpg",
+                'referencia' => '2'               
                 ]);
         }
 
@@ -94,7 +108,14 @@ class jeroglificoController extends Controller
             $jero->imagenes_jeroglificos()->create(
                 [
                 'ruta_imagen' => $nombreGuardado,
-                'referencia' => 'img_Hieratico'               
+                'referencia' => '3'               
+                ]);
+        } else {
+            //De no tener imagen guarda una ruta pre-establecida
+            $jero->imagenes_jeroglificos()->create(
+                [
+                'ruta_imagen' => "system/no-foto.jpg",
+                'referencia' => '3'               
                 ]);
         }
 

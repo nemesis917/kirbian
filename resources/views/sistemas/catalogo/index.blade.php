@@ -104,19 +104,19 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-md-4"><center>Jeroglífico</center><img id="img1" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
-                <div class="col-md-4"><center>Cursivo</center><img id="img2" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
-                <div class="col-md-4"><center>Hierático</center><img id="img3" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
+                <div class="col-md-4"><center>Jeroglífico</center><img id="img0" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
+                <div class="col-md-4"><center>Cursivo</center><img id="img1" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
+                <div class="col-md-4"><center>Hierático</center><img id="img2" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
             </div><br>
             <div class="row">
-                <div class="col-md-4"><b>Gandiner: </b><div id="prueba">Cargando...</div></div>
-                <div class="col-md-8"><b>Transliteración: </b><div id="prueba">Cargando...</div></div>
-            </div>
+                <div class="col-md-4"><b>Gandiner: </b><div id="gandiner">Cargando...</div></div>
+                <div class="col-md-8"><b>Transliteración: </b><div id="trasliteracion">Cargando...</div></div>
+            </div><hr>
             <div class="row">
-                <div class="col-md-12"><b>Significado: </b><div id="prueba">Cargando...</div></div>
-            </div>
+                <div class="col-md-12"><b>Significado: </b><div id="significado">Cargando...</div></div>
+            </div><hr>
             <div class="row">
-                <div class="col-md-12"><b>Descripción: </b><div id="prueba">Cargando...</div></div>
+                <div class="col-md-12"><b>Descripción: </b><div id="descripcion">Cargando...</div></div>
             </div>
         </div>
         <div class="modal-footer">

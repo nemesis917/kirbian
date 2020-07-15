@@ -1,0 +1,30 @@
+---------vista catalogo de jeroglificos------------
+
+CREATE OR REPLACE VIEW vw_catalogo_jeroglifico AS
+
+SELECT 
+	jeroglificos.id AS id,
+    jeroglificos.transliteracion AS transliteracion,
+    jeroglificos.gandiner AS gandiner,
+    imagenes_jeroglificos.ruta_imagen AS ruta_imagen,
+    jeroglificos.catalogo_id AS catalogo_id
+FROM 
+`jeroglificos` 
+LEFT JOIN descripcion on descripcion.jeroglifico_id = jeroglificos.id
+LEFT JOIN imagenes_jeroglificos on imagenes_jeroglificos.jeroglifico_id = jeroglificos.id
+WHERE imagenes_jeroglificos.referencia = '1' 
+
+
+
+------------------ ver informacion de los jeroglificos---------------
+
+CREATE OR REPLACE VIEW vw_ver_jeroglifico AS
+ 
+SELECT jeroglificos.id AS id, 
+jeroglificos.transliteracion AS transliteracion,
+jeroglificos.gandiner AS gandiner, 
+descripcion.descripcion AS descripcion,
+jeroglificos.sentido AS significado,
+jeroglificos.catalogo_id AS catalogo_id 
+FROM `jeroglificos` 
+LEFT JOIN descripcion on descripcion.jeroglifico_id = jeroglificos.id 

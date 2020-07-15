@@ -61,9 +61,9 @@ class catalogoController extends Controller
 
     public function jq_consultar(Request $request){
         $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
-        $imagenes = Imagen_jeroglifico::select('ruta_imagen', 'referencia')->where('jeroglifico_id', $datos[0]->id)->get();
-
-        return response()->json([$datos, $imagenes]);
+        $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
+        $array = [$datos, $imagenes];
+        return response()->json($array);
     }
 
 }

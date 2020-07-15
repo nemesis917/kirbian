@@ -8,7 +8,7 @@ class Imagen_jeroglifico extends Model
 {
     protected $table = "imagenes_jeroglificos";
 
-    protected $fillable = ['ruta_imagen', 'referencia', 'jeroglificos_id'];
+    protected $fillable = ['ruta_imagen', 'referencia', 'jeroglifico_id'];
 
     public function jeroglificos()
     {
