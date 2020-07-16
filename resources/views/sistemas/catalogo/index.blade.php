@@ -2,6 +2,7 @@
 <script src="{{ asset('plugins/jquery/jquery.js') }}" ></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <script src="{{ asset('js/sistema/catalogo/index.js') }}"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 @section('content')
 <div class="container">
     <div class="row">
@@ -22,12 +23,6 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Cargar un catálogo
             </button>
-
-            @if (session('message'))
-                <script>alert('Se ha guardado la información satisfactoriamente')</script>
-            @endif
-                
-
 
             
             <!-- Modal -->
@@ -173,17 +168,31 @@
                     </select>
                     <br>
                 </div>
-                <div class="form-group">
-                    <label for="">Agregue la imagen principal (Jeroglífico)</label>
-                    <input type="file" name="imagen1" id="imagenA" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Agregue la 2da imagen  (Cursivo)</label>
-                    <input type="file" name="imagen2" id="imagenB" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Agregue la 3ra principal (Hierático)</label>
-                    <input type="file" name="imagen3" id="imagenC" class="form-control">
+                <div id="mostrarFoto" class="btn btn-primary">Cambiar las imágenes</div>
+                <div id="invisible"><br>
+                    <div class="row">
+                        <div class="col-4"><label for=""><center>Jeroglífico</center></label><img src="" id="mod0" alt="" class="img-fluid"><p><center><div id="borrar0" value="" title="Borrar esta imagen" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </div></center></p></div>
+                        <div class="col-4"><label for=""><center>Cursivo</center></label><img src="" id="mod1" alt="" class="img-fluid"><p><center><div id="borrar1" value="" title="Borrar esta imagen" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </div></center></p></div>
+                        <div class="col-4"><label for=""><center>Hierático</center></label><img src="" id="mod2" alt="" class="img-fluid"><p><center><div id="borrar2" value="" title="Borrar esta imagen" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </div></center></p></div>
+                    </div>
+                    <p>
+                        <h5><i>Puede sustituir la imagen que desee cargando en el sistema</i></h5>
+                    </p>
+                    <div class="form-group">
+                        <label for="">Agregue la imagen principal (Jeroglífico)</label>
+                        <input type="file" name="imagen1" id="imagenA" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Agregue la 2da imagen  (Cursivo)</label>
+                        <input type="file" name="imagen2" id="imagenB" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Agregue la 3ra principal (Hierático)</label>
+                        <input type="file" name="imagen3" id="imagenC" class="form-control">
+                    </div>                    
                 </div>
             </div>
             <div class="modal-footer">
@@ -194,6 +203,11 @@
     </div>
     </div>
 </div>
+
+@if (session('message'))
+<script>alert("Se ha realizado la solicitud de manera correcta")</script>
+@endif
+
 
 
 @endsection

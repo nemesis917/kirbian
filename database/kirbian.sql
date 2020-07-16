@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2020 a las 22:22:17
+-- Tiempo de generación: 16-07-2020 a las 07:46:35
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -42,32 +42,32 @@ CREATE TABLE `catalogo` (
 --
 
 INSERT INTO `catalogo` (`id`, `nombres`, `slug`, `referencias`, `created_at`, `updated_at`) VALUES
-(55, 'A: el hombre y sus ocupaciones.', 'a-el-hombre-y-sus-ocupaciones', 'QCN7hBdjrJ', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(56, 'B: la mujer y sus ocupaciones.', 'b-la-mujer-y-sus-ocupaciones', 'vyHDVY7eQL', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(57, 'C: deidades.', 'c-deidades', 'O1BhMmmHcw', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(58, 'F: partes del cuerpo humano.', 'f-partes-del-cuerpo-humano', 'ZSEugh04Ni', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(59, 'E: mamíferos.', 'e-mamiferos', 'AW5HKjpNTa', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(60, 'F: partes del cuerpo de los mamíferos.', 'f-partes-del-cuerpo-de-los-mamiferos', 'AsMRASGUju', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(61, 'G: aves.', 'g-aves', 'YqWgELIAr3', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(62, 'H: partes del cuerpo de las aves.', 'h-partes-del-cuerpo-de-las-aves', 'dSBLsh5Ixz', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(63, 'I: anfibios, reptiles y partes de anfibios y reptiles.', 'i-anfibios-reptiles-y-partes-de-anfibios-y-reptiles', 'KgXwvZ5o6S', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(64, 'K: peces y partes de peces.', 'k-peces-y-partes-de-peces', '0PLjCZyTOi', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(65, 'L: invertebrados, otros animales.', 'l-invertebrados-otros-animales', '0i1TWkkUmf', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(66, 'M: árboles y otras plantas.', 'm-arboles-y-otras-plantas', 'TfhrfHso20', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(67, 'N: el cielo, la tierra y el agua.', 'n-el-cielo-la-tierra-y-el-agua', 'hlKGHDCY3o', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(68, 'O: edificios y partes de edificios.', 'o-edificios-y-partes-de-edificios', '1LvM5rJcg1', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(69, 'P: barcas y partes de barcas.', 'p-barcas-y-partes-de-barcas', 'vWchxOV7ig', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(70, 'Q: mobiliario.', 'q-mobiliario', 'TWkgwDNF5i', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(71, 'R: templos.', 'r-templos', '8ZPrWgONLD', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(72, 'S: coronas y cetros.', 's-coronas-y-cetros', 'uoVozENI5q', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(73, 'T: guerra y caza.', 't-guerra-y-caza', 'VSWQkoipTh', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(74, 'U: agricultura y artesanía.', 'u-agricultura-y-artesania', 'lgrcUORIRP', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(75, 'V: cuerdas y cestería.', 'v-cuerdas-y-cesteria', 'XmTFnuW9mh', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(76, 'W: vasijas de piedra y cerámica.', 'w-vasijas-de-piedra-y-ceramica', 'DEnxVtSR1W', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(77, 'X: panes y pasteles.', 'x-panes-y-pasteles', 's2mLc6CRq4', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(78, 'Y: escritura, juegos y música.', 'y-escritura-juegos-y-musica', 'VumZi5j32G', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(79, 'Z: trazos y figuras geométricas.', 'z-trazos-y-figuras-geometricas', '1GH49iI7Di', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
-(80, 'Aa: jeroglíficos sin clasificar.', 'aa-jeroglificos-sin-clasificar', 'ETSvqMonfv', '2020-04-30 04:48:14', '2020-04-30 04:48:14');
+(55, 'A: el hombre y sus ocupaciones.', 'a-el-hombre-y-sus-ocupaciones', 'QCN7hBdjrJ', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(56, 'B: la mujer y sus ocupaciones.', 'b-la-mujer-y-sus-ocupaciones', 'vyHDVY7eQL', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(57, 'C: deidades.', 'c-deidades', 'O1BhMmmHcw', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(58, 'F: partes del cuerpo humano.', 'f-partes-del-cuerpo-humano', 'ZSEugh04Ni', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(59, 'E: mamíferos.', 'e-mamiferos', 'AW5HKjpNTa', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(60, 'F: partes del cuerpo de los mamíferos.', 'f-partes-del-cuerpo-de-los-mamiferos', 'AsMRASGUju', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(61, 'G: aves.', 'g-aves', 'YqWgELIAr3', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(62, 'H: partes del cuerpo de las aves.', 'h-partes-del-cuerpo-de-las-aves', 'dSBLsh5Ixz', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(63, 'I: anfibios, reptiles y partes de anfibios y reptiles.', 'i-anfibios-reptiles-y-partes-de-anfibios-y-reptiles', 'KgXwvZ5o6S', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(64, 'K: peces y partes de peces.', 'k-peces-y-partes-de-peces', '0PLjCZyTOi', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(65, 'L: invertebrados, otros animales.', 'l-invertebrados-otros-animales', '0i1TWkkUmf', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(66, 'M: árboles y otras plantas.', 'm-arboles-y-otras-plantas', 'TfhrfHso20', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(67, 'N: el cielo, la tierra y el agua.', 'n-el-cielo-la-tierra-y-el-agua', 'hlKGHDCY3o', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(68, 'O: edificios y partes de edificios.', 'o-edificios-y-partes-de-edificios', '1LvM5rJcg1', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(69, 'P: barcas y partes de barcas.', 'p-barcas-y-partes-de-barcas', 'vWchxOV7ig', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(70, 'Q: mobiliario.', 'q-mobiliario', 'TWkgwDNF5i', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(71, 'R: templos.', 'r-templos', '8ZPrWgONLD', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(72, 'S: coronas y cetros.', 's-coronas-y-cetros', 'uoVozENI5q', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(73, 'T: guerra y caza.', 't-guerra-y-caza', 'VSWQkoipTh', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(74, 'U: agricultura y artesanía.', 'u-agricultura-y-artesania', 'lgrcUORIRP', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(75, 'V: cuerdas y cestería.', 'v-cuerdas-y-cesteria', 'XmTFnuW9mh', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(76, 'W: vasijas de piedra y cerámica.', 'w-vasijas-de-piedra-y-ceramica', 'DEnxVtSR1W', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(77, 'X: panes y pasteles.', 'x-panes-y-pasteles', 's2mLc6CRq4', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(78, 'Y: escritura, juegos y música.', 'y-escritura-juegos-y-musica', 'VumZi5j32G', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(79, 'Z: trazos y figuras geométricas.', 'z-trazos-y-figuras-geometricas', '1GH49iI7Di', '2020-04-30 08:48:14', '2020-04-30 08:48:14'),
+(80, 'Aa: jeroglíficos sin clasificar.', 'aa-jeroglificos-sin-clasificar', 'ETSvqMonfv', '2020-04-30 08:48:14', '2020-04-30 08:48:14');
 
 -- --------------------------------------------------------
 
@@ -103,16 +103,7 @@ CREATE TABLE `descripcion` (
 --
 
 INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
-(1, 'Prueba Prueba Prueba Prueba Prueba', 1, '2020-07-15 00:12:43', '2020-07-15 00:12:43'),
-(2, 'descripcion del simbolo, el cual asumo es un texto mucho mas largo que el resto del documento, no se me ocurre la longitud pero asumo que es de un tamaño aproximado a esto', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
-(3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
-(4, 'si señores, solo tiene una sola imagen nada mas, no hay mas', 4, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
-(5, 'todas las fotostodas las fotostodas las fotostodas las fotostodas las fotostodas las fotos', 5, '2020-07-15 08:30:05', '2020-07-15 08:30:05'),
-(6, 'no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo no cursivo', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
-(7, 'algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo algo', 7, '2020-07-15 21:55:05', '2020-07-15 21:55:05'),
-(8, 'sdgd gsgdgdg fgdf dgsgsdg', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
-(9, 'svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew vew grthrt htrhrt svddvs dds vdew', 10, '2020-07-15 22:38:29', '2020-07-15 22:38:29'),
-(10, 'dfgdf gdfg dfgdfg dfgdfgd gfdfd fsdfsd fffffff ffffff fffff fffff', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41');
+(1, 'ertilidad, buenas energias y alegrias para la poblacion de esa epocaertilidad, buenas energias y alegrias para la poblacion de esa epocaertilidad, buenas energias y alegrias para la poblacion de esa epocaertilidad, buena', 1, '2020-07-16 09:44:07', '2020-07-16 09:44:07');
 
 -- --------------------------------------------------------
 
@@ -148,34 +139,9 @@ CREATE TABLE `imagenes_jeroglificos` (
 --
 
 INSERT INTO `imagenes_jeroglificos` (`id`, `ruta_imagen`, `referencia`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
-(1, 'imagenes/catalogo/55/370-jero-55-521.png', '1', 1, '2020-07-15 00:12:44', '2020-07-15 00:12:44'),
-(2, 'imagenes/catalogo/55/241-jero-55-70.png', '1', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
-(3, 'imagenes/catalogo/55/825-jero-55-509.png', '2', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
-(4, 'imagenes/catalogo/55/199-jero-55-502.png', '3', 2, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
-(5, 'imagenes/catalogo/55/486-jero-55-666.png', '1', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
-(6, 'imagenes/catalogo/55/912-jero-55-942.png', '2', 3, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
-(7, 'imagenes/catalogo/55/241-jero-55-203.png', '1', 4, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
-(8, 'imagenes/catalogo/55/396-jero-55-595.png', '1', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
-(9, 'imagenes/catalogo/55/509-jero-55-624.png', '2', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
-(10, 'imagenes/catalogo/55/75-jero-55-96.png', '3', 5, '2020-07-15 08:30:06', '2020-07-15 08:30:06'),
-(11, 'imagenes/catalogo/55/711-jero-55-896.png', '1', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
-(12, 'system/no-foto.jpg', '2', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
-(13, 'imagenes/catalogo/55/432-jero-55-885.png', '3', 6, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
-(14, 'imagenes/catalogo/64/187-jero-64-417.png', '1', 7, '2020-07-15 21:55:06', '2020-07-15 21:55:06'),
-(15, 'system/no-foto.jpg', '2', 7, '2020-07-15 21:55:06', '2020-07-15 21:55:06'),
-(16, 'system/no-foto.jpg', '3', 7, '2020-07-15 21:55:06', '2020-07-15 21:55:06'),
-(17, 'imagenes/catalogo/58/464-jero-58-256.png', '1', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
-(18, 'system/no-foto.jpg', '2', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
-(19, 'system/no-foto.jpg', '3', 8, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
-(20, 'imagenes/catalogo/69/226-jero-69-964.png', '1', 9, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
-(21, 'system/no-foto.jpg', '2', 9, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
-(22, 'system/no-foto.jpg', '3', 9, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
-(23, 'imagenes/catalogo/55/491-jero-55-702.png', '1', 10, '2020-07-15 22:38:30', '2020-07-15 22:38:30'),
-(24, 'system/no-foto.jpg', '2', 10, '2020-07-15 22:38:30', '2020-07-15 22:38:30'),
-(25, 'system/no-foto.jpg', '3', 10, '2020-07-15 22:38:30', '2020-07-15 22:38:30'),
-(26, 'imagenes/catalogo/66/445-jero-66-935.png', '1', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41'),
-(27, 'system/no-foto.jpg', '2', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41'),
-(28, 'system/no-foto.jpg', '3', 11, '2020-07-15 22:40:41', '2020-07-15 22:40:41');
+(1, 'imagenes/catalogo/55/911-jero-55-6.png', '1', 1, '2020-07-16 09:44:07', '2020-07-16 09:44:07'),
+(2, 'system/no-foto.jpg', '2', 1, '2020-07-16 09:44:07', '2020-07-16 09:44:07'),
+(3, 'imagenes/catalogo/55/195-jero-55-836.png', '3', 1, '2020-07-16 09:44:07', '2020-07-16 09:44:07');
 
 -- --------------------------------------------------------
 
@@ -199,17 +165,7 @@ CREATE TABLE `jeroglificos` (
 --
 
 INSERT INTO `jeroglificos` (`id`, `gandiner`, `transliteracion`, `sentido`, `nombre_usuario`, `catalogo_id`, `created_at`, `updated_at`) VALUES
-(1, 'Prueba', 'Prueba', 'Prueba', 'admin admin', 55, '2020-07-15 00:12:43', '2020-07-15 00:12:43'),
-(2, 'Gardiner', 'Transliteracion', 'Significa fertilidad, buenas energias y alegrias para la poblacion de esa epoca', 'admin admin', 55, '2020-07-15 00:22:14', '2020-07-15 00:22:14'),
-(3, '2 imagenes', 'transliteracion 2', 'segundo significado', 'admin admin', 55, '2020-07-15 00:24:16', '2020-07-15 00:24:16'),
-(4, '1 imagen', 'solo una imagen', 'significa que tengo solo una imagen, que mas quiere que diga', 'admin admin', 55, '2020-07-15 00:51:03', '2020-07-15 00:51:03'),
-(5, 'All fotos', 'todas las fotos', 'todas las fotos', 'admin admin', 55, '2020-07-15 08:30:05', '2020-07-15 08:30:05'),
-(6, 'no cursivo', 'no cursivo', 'no cursivo', 'admin admin', 55, '2020-07-15 08:32:06', '2020-07-15 08:32:06'),
-(7, 'algo', 'algo', 'algo', 'admin admin', 64, '2020-07-15 21:55:04', '2020-07-15 21:55:04'),
-(8, 'zapato', 'zapato zapatero', 'Lorem ipsum', 'admin admin', 58, '2020-07-15 21:56:06', '2020-07-15 21:56:06'),
-(9, 'svdvdvsd', 'svdvdvsdgsdgd', 'svdvdvsdgsdgd', 'admin admin', 69, '2020-07-15 21:58:10', '2020-07-15 21:58:10'),
-(10, 'siudosds', 'vpisdv hssd vihsp dvhi VIP HSI', 'pivhsvi psdvh psdv hspd vsipdvh ps dhvps div hpsd dhvp sd vhis pdvh psdispd vhspd ivhs dpivhsp vhiisdpv hsdp ivhsdipv hs pdvhsp dvhs ipd hvi psdh vsipdh  vsipdhv sipd vhsdvpiv', 'admin admin', 55, '2020-07-15 22:38:29', '2020-07-15 22:38:29'),
-(11, 'sdgdgdgsdgdg', 'sdsggdf gdf gdfdfg', 'dfgdfgdfg', 'admin admin', 66, '2020-07-15 22:40:41', '2020-07-15 22:40:41');
+(1, 'xccxvxvxcv', 'sdsgsdgsdg', 'Significa fertilidad, buenas energias y alegrias para la poblacion de esa epoca', 'admin admin', 55, '2020-07-16 09:44:07', '2020-07-16 09:44:07');
 
 -- --------------------------------------------------------
 
@@ -228,11 +184,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(16, '2014_10_12_000000_create_users_table', 1),
-(17, '2014_10_12_100000_create_password_resets_table', 1),
-(18, '2020_07_10_043508_catalogo', 1),
-(19, '2020_07_11_044749_jeroglificos', 1),
-(20, '2020_07_11_054259_comentarios_jero', 1);
+(11, '2014_10_12_000000_create_users_table', 1),
+(12, '2014_10_12_100000_create_password_resets_table', 1),
+(13, '2020_07_10_043508_catalogo', 1),
+(14, '2020_07_11_044749_jeroglificos', 1),
+(15, '2020_07_11_054259_comentarios_jero', 1);
 
 -- --------------------------------------------------------
 
@@ -270,7 +226,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'vXMVlTnb6qdB1KgoEZH75R9yjzceQIWs8a3vvj9Y9VdxNimbjCN3YpAhXel2', NULL, NULL);
+(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'KMUMe4nWFezFv4xbCdEttRP3P2346ROqHFTe3GuC8zHtgyQI5Ls8DLbNk5hU', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -403,7 +359,7 @@ ALTER TABLE `comentarios_jero`
 -- AUTO_INCREMENT de la tabla `descripcion`
 --
 ALTER TABLE `descripcion`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_comentario_jero`
@@ -415,19 +371,19 @@ ALTER TABLE `imagenes_comentario_jero`
 -- AUTO_INCREMENT de la tabla `imagenes_jeroglificos`
 --
 ALTER TABLE `imagenes_jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `jeroglificos`
 --
 ALTER TABLE `jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

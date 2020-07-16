@@ -16,7 +16,7 @@ WHERE imagenes_jeroglificos.referencia = '1'
 
 
 
------------------- ver informacion de los jeroglificos---------------
+------------------ ver informacion de los jeroglificos ---------------
 
 CREATE OR REPLACE VIEW vw_ver_jeroglifico AS
  
@@ -28,3 +28,40 @@ jeroglificos.sentido AS significado,
 jeroglificos.catalogo_id AS catalogo_id 
 FROM `jeroglificos` 
 LEFT JOIN descripcion on descripcion.jeroglifico_id = jeroglificos.id 
+
+
+------------ datos de primer acceso -------------------
+
+INSERT INTO `catalogo` (`id`, `nombres`, `slug`, `referencias`, `created_at`, `updated_at`) VALUES
+(55, 'A: el hombre y sus ocupaciones.', 'a-el-hombre-y-sus-ocupaciones', 'QCN7hBdjrJ', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(56, 'B: la mujer y sus ocupaciones.', 'b-la-mujer-y-sus-ocupaciones', 'vyHDVY7eQL', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(57, 'C: deidades.', 'c-deidades', 'O1BhMmmHcw', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(58, 'F: partes del cuerpo humano.', 'f-partes-del-cuerpo-humano', 'ZSEugh04Ni', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(59, 'E: mamíferos.', 'e-mamiferos', 'AW5HKjpNTa', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(60, 'F: partes del cuerpo de los mamíferos.', 'f-partes-del-cuerpo-de-los-mamiferos', 'AsMRASGUju', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(61, 'G: aves.', 'g-aves', 'YqWgELIAr3', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(62, 'H: partes del cuerpo de las aves.', 'h-partes-del-cuerpo-de-las-aves', 'dSBLsh5Ixz', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(63, 'I: anfibios, reptiles y partes de anfibios y reptiles.', 'i-anfibios-reptiles-y-partes-de-anfibios-y-reptiles', 'KgXwvZ5o6S', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(64, 'K: peces y partes de peces.', 'k-peces-y-partes-de-peces', '0PLjCZyTOi', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(65, 'L: invertebrados, otros animales.', 'l-invertebrados-otros-animales', '0i1TWkkUmf', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(66, 'M: árboles y otras plantas.', 'm-arboles-y-otras-plantas', 'TfhrfHso20', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(67, 'N: el cielo, la tierra y el agua.', 'n-el-cielo-la-tierra-y-el-agua', 'hlKGHDCY3o', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(68, 'O: edificios y partes de edificios.', 'o-edificios-y-partes-de-edificios', '1LvM5rJcg1', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(69, 'P: barcas y partes de barcas.', 'p-barcas-y-partes-de-barcas', 'vWchxOV7ig', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(70, 'Q: mobiliario.', 'q-mobiliario', 'TWkgwDNF5i', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(71, 'R: templos.', 'r-templos', '8ZPrWgONLD', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(72, 'S: coronas y cetros.', 's-coronas-y-cetros', 'uoVozENI5q', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(73, 'T: guerra y caza.', 't-guerra-y-caza', 'VSWQkoipTh', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(74, 'U: agricultura y artesanía.', 'u-agricultura-y-artesania', 'lgrcUORIRP', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(75, 'V: cuerdas y cestería.', 'v-cuerdas-y-cesteria', 'XmTFnuW9mh', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(76, 'W: vasijas de piedra y cerámica.', 'w-vasijas-de-piedra-y-ceramica', 'DEnxVtSR1W', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(77, 'X: panes y pasteles.', 'x-panes-y-pasteles', 's2mLc6CRq4', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(78, 'Y: escritura, juegos y música.', 'y-escritura-juegos-y-musica', 'VumZi5j32G', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(79, 'Z: trazos y figuras geométricas.', 'z-trazos-y-figuras-geometricas', '1GH49iI7Di', '2020-04-30 04:48:14', '2020-04-30 04:48:14'),
+(80, 'Aa: jeroglíficos sin clasificar.', 'aa-jeroglificos-sin-clasificar', 'ETSvqMonfv', '2020-04-30 04:48:14', '2020-04-30 04:48:14');
+
+
+INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'KMUMe4nWFezFv4xbCdEttRP3P2346ROqHFTe3GuC8zHtgyQI5Ls8DLbNk5hU', NULL, NULL);
+
+

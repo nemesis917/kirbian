@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    $("#invisible").hide();
+
     $("#seleccion").change(function(){
         if ($(this).val() == "Seleccione...") {
             return false;
@@ -86,33 +88,42 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                console.log(resultado[2]);
-
+                console.log(resultado[1][0]);
                 $("#gandiner").attr("value", "");
                 $("#trasliteracion").attr("value", "");
                 $("#significado").attr("value", "");
                 $("#descripcion").attr("value", "");
                 //$("#seleccion1").attr("selected", "");
-                $("#imagenA").attr("value", "");
-                $("#imagenB").attr("value", "");
-                $("#imagenC").attr("value", "");
+                $("#mod1").attr("src", "../system/no-foto.jpg");
+                $("#mod2").attr("src", "../system/no-foto.jpg");
+                $("#mod3").attr("src", "../system/no-foto.jpg");
+                $("#invisible").hide();
 
                 $("#gandiner1").attr("value", resultado[0][0].gandiner);
                 $("#transliteracion1").attr("value", resultado[0][0].transliteracion);
                 $("#significado1").attr("value", resultado[0][0].significado);
                 $("#mensajeDescripcion").html(resultado[0][0].descripcion);
-                console.log(resultado[2][3].id);
+
+                // $("#mod1").attr("src", "" + resultado[1][0].ruta_imagen);
+                // $("#mod2").attr("src", "" + resultado[1][1].ruta_imagen);
+                // $("#mod3").attr("src", "" + resultado[1][2].ruta_imagen);
+
                 for (let index = 0; index < resultado[2].length; index++) {
-                    
                     if (resultado[0][0].catalogo_id == resultado[2][index].id) {
                         $("#seleccion1-" + resultado[0][0].catalogo_id).attr("selected","selected");
                     }
-                    
+                }
+
+                for (let i = 0; i < resultado[1].length; i++) {
+                    $("#mod" + i).attr("src","../" +resultado[1][i].ruta_imagen);
+                    $("#borrar" + i).attr("value", resultado[1][i].id);
+
                 }
 
 
 
-                
+
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR)
@@ -124,6 +135,10 @@ $(document).ready(function(){
                 // console.log(errorThrown)
                 alert("No de ver");
             }
+        });
+
+        $(document).on('click', '#mostrarFoto', function(){
+            $("#invisible").show();
         });
 
 
@@ -180,9 +195,18 @@ function templateCatalogo(catalogoItem){
                 <p class="card-text">Transliteracion: ${transliteracion}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" data-toggle="modal" id="ver" data-target="#consultar">Consultar</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" data-toggle="modal" id="editar" data-target="#modificar">Editar</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}">Eliminar</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar un jeroglífico" data-toggle="modal" id="ver" data-target="#consultar">
+                            <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Modificar un jeroglífico" data-toggle="modal" id="editar" data-target="#modificar">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Eliminar un jeroglífico">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar los comentarios">
+                            Comentarios
+                        </button>
                     </div>
                 </div>
             </div>
