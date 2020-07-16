@@ -140,9 +140,25 @@ class jeroglificoController extends Controller
         return response()->json([$datos, $imagenes, $catalogo]);
     }
 
-    public function update()
+    public function update(Request $request)
     {
-        dd("update");
+        $jero = Jeroglifico::find($request->id);
+
+        $jero->gandiner = $request->gandiner;
+        $jero->transliteracion = $request->transliteracion;
+        $jero->sentido = $request->significado;
+        $jero->nombre_usuario = \Auth::user()->name ." ". \Auth::user()->lastname;
+        $jero->catalogo_id = $request->seleccion;
+
+        $update = $jero->update();
+
+        if($update == true && !empty($request->descripcion)){
+            $jero->descripciones()->update(
+                [
+                'descripcion' => $request->descripcion
+                ]);
+        }
+        return redirect()->route('sistema.catalogo.index')->with('message', "solicitud procesada");
     }
 
     public function destroy()

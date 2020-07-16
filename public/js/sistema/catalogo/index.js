@@ -103,6 +103,7 @@ $(document).ready(function(){
                 $("#transliteracion1").attr("value", resultado[0][0].transliteracion);
                 $("#significado1").attr("value", resultado[0][0].significado);
                 $("#mensajeDescripcion").html(resultado[0][0].descripcion);
+                $("#id").attr("value", resultado[0][0].id);
 
                 // $("#mod1").attr("src", "" + resultado[1][0].ruta_imagen);
                 // $("#mod2").attr("src", "" + resultado[1][1].ruta_imagen);
@@ -138,7 +139,7 @@ $(document).ready(function(){
         });
 
         $(document).on('click', '#mostrarFoto', function(){
-            $("#invisible").show();
+            $("#invisible").toggle();
         });
 
 

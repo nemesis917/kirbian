@@ -166,16 +166,17 @@
                         <option value="{{ $cat->id }}" id="seleccion1-{{ $cat->id }}" >{{ $cat->nombres }}</option>
                         @endforeach
                     </select>
+                    <input type="hidden" name="id" id="id" value="">
                     <br>
                 </div>
                 <div id="mostrarFoto" class="btn btn-primary">Cambiar las imágenes</div>
                 <div id="invisible"><br>
                     <div class="row">
-                        <div class="col-4"><label for=""><center>Jeroglífico</center></label><img src="" id="mod0" alt="" class="img-fluid"><p><center><div id="borrar0" value="" title="Borrar esta imagen" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <div class="col-4"><label for=""><center>Jeroglífico</center></label><img src="" id="mod0" alt="" class="img-fluid"><p><center><div id="borrar0" value="" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i>
                             </div></center></p></div>
-                        <div class="col-4"><label for=""><center>Cursivo</center></label><img src="" id="mod1" alt="" class="img-fluid"><p><center><div id="borrar1" value="" title="Borrar esta imagen" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <div class="col-4"><label for=""><center>Cursivo</center></label><img src="" id="mod1" alt="" class="img-fluid"><p><center><div id="borrar1" value="" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i>
                             </div></center></p></div>
-                        <div class="col-4"><label for=""><center>Hierático</center></label><img src="" id="mod2" alt="" class="img-fluid"><p><center><div id="borrar2" value="" title="Borrar esta imagen" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <div class="col-4"><label for=""><center>Hierático</center></label><img src="" id="mod2" alt="" class="img-fluid"><p><center><div id="borrar2" value="" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i>
                             </div></center></p></div>
                     </div>
                     <p>
