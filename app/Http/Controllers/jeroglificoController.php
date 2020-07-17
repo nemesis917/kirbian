@@ -142,6 +142,9 @@ class jeroglificoController extends Controller
 
     public function update(Request $request)
     {
+
+        $vw_jero = $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->first();
+        
         $jero = Jeroglifico::find($request->id);
 
         $jero->gandiner = $request->gandiner;
@@ -149,21 +152,109 @@ class jeroglificoController extends Controller
         $jero->sentido = $request->significado;
         $jero->nombre_usuario = \Auth::user()->name ." ". \Auth::user()->lastname;
         $jero->catalogo_id = $request->seleccion;
-
+        
         $update = $jero->update();
 
-        if($update == true && !empty($request->descripcion)){
-            $jero->descripciones()->update(
-                [
-                'descripcion' => $request->descripcion
-                ]);
+        if (!empty($request->descripcion)) {
+            if($vw_jero->descripcion == null){
+                $jero->descripciones()->create(
+                    [
+                    'descripcion' => $request->descripcion
+                    ]
+                );
+            } else {
+                $jero->descripciones()->update(['descripcion' => $request->descripcion]);
+            }
         }
-        return redirect()->route('sistema.catalogo.index')->with('message', "solicitud procesada");
+
+        //Carga de imagenes
+
+        if (isset($request->imagen0)) {
+            
+            //Anexamos el id para la carpeta
+            $idCatalogo = $jero->catalogo_id;
+            //Se define una variable para abreviar
+            $image = $request->imagen0; 
+
+            $nombreGuardado = $this->guardarImagenResize($image, $idCatalogo);
+
+            $imagen = Imagen_jeroglifico::select()->where('referencia','1')->where('jeroglifico_id', $request->id)->first();
+            
+            $nombreImg = explode('/', $imagen->ruta_imagen);
+
+            //mover el archivo a una papelera
+            rename ( $imagen->ruta_imagen, "imagenes/basurero/" . $nombreImg[3]);
+
+            $imagen->ruta_imagen = $nombreGuardado;
+            $imagen->update();
+        } 
+
+            //editar
+        if (isset($request->imagen1)) {
+            
+            //Anexamos el id para la carpeta
+            $idCatalogo = $jero->catalogo_id;
+            //Se define una variable para abreviar
+            $image = $request->imagen1; 
+
+            $nombreGuardado = $this->guardarImagenResize($image, $idCatalogo);
+
+            $imagen = Imagen_jeroglifico::select()->where('referencia','2')->where('jeroglifico_id', $request->id)->first();
+            
+            $nombreImg = explode('/', $imagen->ruta_imagen);
+            $cant = sizeof($nombreImg);
+            
+            if ($cant == 4) {
+                //mover el archivo a una papelera
+                rename ( $imagen->ruta_imagen, "imagenes/basurero/" . $nombreImg[3]);
+            } else {
+
+            }
+
+            $imagen->ruta_imagen = $nombreGuardado;
+            $imagen->update();
+        } 
+
+        if (isset($request->imagen2)) {
+            
+            //Anexamos el id para la carpeta
+            $idCatalogo = $jero->catalogo_id;
+            //Se define una variable para abreviar
+            $image = $request->imagen2; 
+
+            $nombreGuardado = $this->guardarImagenResize($image, $idCatalogo);
+
+            $imagen = Imagen_jeroglifico::select()->where('referencia','3')->where('jeroglifico_id', $request->id)->first();
+            
+            $nombreImg = explode('/', $imagen->ruta_imagen);
+            $cant = sizeof($nombreImg);
+
+            if ($cant == 4) {
+                //mover el archivo a una papelera
+                rename ( $imagen->ruta_imagen, "imagenes/basurero/" . $nombreImg[3]);
+            }
+
+            $imagen->ruta_imagen = $nombreGuardado;
+            $imagen->update();
+        } 
+
+        if($update){
+            return redirect()->route('sistema.catalogo.index')->with('message', "solicitud procesada");
+        } else {
+            return redirect()->route('sistema.catalogo.index')->with('error', "Hubo un error");
+        }
     }
 
     public function destroy()
     {
 
+    }
+
+    public function jq_consultar(Request $request){
+        $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
+        $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
+        $array = [$datos, $imagenes];
+        return response()->json($array);
     }
 
     public function guardarImagenResize($image, $idCatalogo){
@@ -200,11 +291,6 @@ class jeroglificoController extends Controller
 
     }
 
-    public function jq_consultar(Request $request){
-        $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
-        $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
-        $array = [$datos, $imagenes];
-        return response()->json($array);
-    }
+
 
 }

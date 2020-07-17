@@ -139,7 +139,7 @@ $(document).ready(function(){
         });
 
         $(document).on('click', '#mostrarFoto', function(){
-            $("#invisible").toggle();
+            $("#invisible").show();
         });
 
 

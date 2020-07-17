@@ -39,7 +39,7 @@
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="">Ingrese el Gardiner: </label>
+                                <label for="">Ingrese el Gandiner: </label>
                                 <input type="text" name="gardiner" class="form-control" maxlength="12" required>
                             </div>
                             <div class="form-group">
@@ -55,7 +55,7 @@
                                 <textarea name="descripcion" id="" class="form-control" maxlength="220"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="gardiner">Selecciona un Gardiner</label>
+                                <label for="gandiner">Selecciona un Gandiner</label>
                                 <select  name="seleccion" class="custom-select" required>
                                     <option>Seleccione...</option>
                                     @foreach ($catalogo as $cat)
@@ -143,7 +143,7 @@
             @csrf
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="">Ingrese el Gardiner: </label>
+                    <label for="">Ingrese el Gandiner: </label>
                     <input type="text" name="gandiner" id="gandiner1" value="" class="form-control" maxlength="12" required>
                 </div>
                 <div class="form-group">
@@ -159,7 +159,7 @@
                     <textarea name="descripcion" id="mensajeDescripcion" class="form-control" maxlength="220"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="gardiner">Selecciona un Gardiner</label>
+                    <label for="gandiner">Selecciona un Gandiner</label>
                     <select name="seleccion" class="custom-select" required>
                         <option>Seleccione...</option>
                         @foreach ($catalogo as $cat)
@@ -184,15 +184,15 @@
                     </p>
                     <div class="form-group">
                         <label for="">Agregue la imagen principal (Jeroglífico)</label>
-                        <input type="file" name="imagen1" id="imagenA" class="form-control">
+                        <input type="file" name="imagen0" id="imagenA" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Agregue la 2da imagen  (Cursivo)</label>
-                        <input type="file" name="imagen2" id="imagenB" class="form-control">
+                        <input type="file" name="imagen1" id="imagenB" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Agregue la 3ra principal (Hierático)</label>
-                        <input type="file" name="imagen3" id="imagenC" class="form-control">
+                        <input type="file" name="imagen2" id="imagenC" class="form-control">
                     </div>                    
                 </div>
             </div>
@@ -206,9 +206,11 @@
 </div>
 
 @if (session('message'))
-<script>alert("Se ha realizado la solicitud de manera correcta")</script>
+    <script>alert("Se ha realizado la solicitud de manera correcta")</script>
 @endif
 
-
+@if (session('error'))
+    <script>alert("Hubo un error en el sistema")</script>
+@endif
 
 @endsection
