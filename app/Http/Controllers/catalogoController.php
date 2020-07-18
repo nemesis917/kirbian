@@ -55,7 +55,7 @@ class catalogoController extends Controller
 
 
     public function jq_gardiner(Request $request){
-        $datos = DB::table('vw_catalogo_jeroglifico')->where('catalogo_id', $request->id)->get();
+        $datos = DB::table('vw_catalogo_jeroglifico')->where('catalogo_id', $request->id)->where('visibilidad', 1)->get();
         return response()->json($datos);
     }
 

@@ -39,6 +39,8 @@ Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], func
     Route::post('modificar','jeroglificoController@edit')->name('sistema.jeroglifico.edit');
     Route::post('modificando','jeroglificoController@update')->name('sistema.jeroglifico.update');
     Route::post('verJeroglifico', 'jeroglificoController@jq_consultar');
+    Route::post('foto-estandar', 'jeroglificoController@jq_anularFoto');
+    Route::post('desactivarJeroglifico', 'jeroglificoController@jq_desactivarJero');
 });
 
 Route::group(['prefix' => 'control',  'middleware' => 'auth'], function () {

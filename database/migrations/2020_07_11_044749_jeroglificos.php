@@ -20,6 +20,7 @@ class Jeroglificos extends Migration
             $table->text('sentido');
             $table->string('nombre_usuario', 70);
             $table->unsignedBigInteger('catalogo_id');
+            $table->boolean('visibilidad');
 
             $table->foreign('catalogo_id')->references('id')->on('catalogo');
             $table->timestamps();

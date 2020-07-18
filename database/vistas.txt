@@ -7,13 +7,14 @@ SELECT
     jeroglificos.transliteracion AS transliteracion,
     jeroglificos.gandiner AS gandiner,
     imagenes_jeroglificos.ruta_imagen AS ruta_imagen,
+    jeroglificos.visibilidad AS visibilidad,
     jeroglificos.catalogo_id AS catalogo_id
 FROM 
 `jeroglificos` 
 LEFT JOIN descripcion on descripcion.jeroglifico_id = jeroglificos.id
 LEFT JOIN imagenes_jeroglificos on imagenes_jeroglificos.jeroglifico_id = jeroglificos.id
 WHERE imagenes_jeroglificos.referencia = '1' 
-
+AND jeroglificos.visibilidad = 1
 
 
 ------------------ ver informacion de los jeroglificos ---------------

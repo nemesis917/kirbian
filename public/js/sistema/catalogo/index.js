@@ -88,7 +88,7 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                console.log(resultado[1][0]);
+                console.log(resultado[2]);
                 $("#gandiner").attr("value", "");
                 $("#trasliteracion").attr("value", "");
                 $("#significado").attr("value", "");
@@ -104,10 +104,6 @@ $(document).ready(function(){
                 $("#significado1").attr("value", resultado[0][0].significado);
                 $("#mensajeDescripcion").html(resultado[0][0].descripcion);
                 $("#id").attr("value", resultado[0][0].id);
-
-                // $("#mod1").attr("src", "" + resultado[1][0].ruta_imagen);
-                // $("#mod2").attr("src", "" + resultado[1][1].ruta_imagen);
-                // $("#mod3").attr("src", "" + resultado[1][2].ruta_imagen);
 
                 for (let index = 0; index < resultado[2].length; index++) {
                     if (resultado[0][0].catalogo_id == resultado[2][index].id) {
@@ -142,6 +138,158 @@ $(document).ready(function(){
             $("#invisible").show();
         });
 
+        $(document).on('change', '#imagenA', function(){
+            var archivo = $("#imagenA").val();
+            var extensiones = archivo.substring(archivo.lastIndexOf("."));  
+
+            if(extensiones != ".jpg" && extensiones != ".png")
+            {
+                alert('El archivo de tipo ' + extensiones + ' no es válido');
+                $("#imagenA").val("");
+                return false;
+            }
+        });
+
+        $(document).on('change', '#imagenB', function(){
+            var archivo = $("#imagenB").val();
+            var extensiones = archivo.substring(archivo.lastIndexOf("."));  
+
+            if(extensiones != ".jpg" && extensiones != ".png")
+            {
+                alert('El archivo de tipo ' + extensiones + ' no es válido');
+                $("#imagenB").val("");
+                return false;
+            }
+        });
+
+        $(document).on('change', '#imagenC', function(){
+            var archivo = $("#imagenC").val();
+            var extensiones = archivo.substring(archivo.lastIndexOf("."));  
+
+            if(extensiones != ".jpg" && extensiones != ".png")
+            {
+                alert('El archivo de tipo ' + extensiones + ' no es válido');
+                $("#imagenC").val("");
+                return false;
+            }
+        });
+
+    });
+
+
+    $(document).on('change', '#imagen1', function(){
+        var archivo = $("#imagen1").val();
+        var extensiones = archivo.substring(archivo.lastIndexOf("."));  
+        if(extensiones != ".jpg" && extensiones != ".png")
+        {
+            alert('El archivo de tipo ' + extensiones + ' no es válido');
+            $("#imagen1").val("");
+            return false;
+        }
+    });
+
+    $(document).on('change', '#imagen2', function(){
+        var archivo = $("#imagen2").val();
+        var extensiones = archivo.substring(archivo.lastIndexOf("."));  
+        if(extensiones != ".jpg" && extensiones != ".png")
+        {
+            alert('El archivo de tipo ' + extensiones + ' no es válido');
+            $("#imagen2").val("");
+            return false;
+        }
+    });
+
+    $(document).on('change', '#imagen3', function(){
+        var archivo = $("#imagen3").val();
+        var extensiones = archivo.substring(archivo.lastIndexOf("."));  
+        if(extensiones != ".jpg" && extensiones != ".png")
+        {
+            alert('El archivo de tipo ' + extensiones + ' no es válido');
+            $("#imagen3").val("");
+            return false;
+        }
+    });
+
+    $(document).on('click', '#borrar1' , function(){
+        var valida = confirm("¿Seguro desea eliminare sta imagen?");
+        if (valida == false) {
+            return false;
+        }
+        $.ajax({
+            url: "../sistema/jeroglifico/foto-estandar",
+            type: "post",
+            dataType: "json",
+            data: {'id': $(this).val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (resultado) {
+                $('#mod1').attr('src', '../system/no-foto.jpg');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("No de ver");
+            }
+        });
+    });
+
+    $(document).on('click', '#borrar2' , function(){
+        var valida = confirm("¿Seguro desea eliminare sta imagen?");
+        if (valida == false) {
+            return false;
+        }
+        $.ajax({
+            url: "../sistema/jeroglifico/foto-estandar",
+            type: "post",
+            dataType: "json",
+            data: {'id': $(this).val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (resultado) {
+                $('#mod1').attr('src', '../system/no-foto.jpg');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("No de ver");
+            }
+        });
+    });
+
+    $(document).on('click', '#eliminarJero', function(){
+        var validar = confirm("¿Esta seguro de querer eliminar este Jeroglífico?");
+        if (validar == false) {
+            return false;
+        }
+        $.ajax({
+            url: "../sistema/jeroglifico/desactivarJeroglifico",
+            type: "post",
+            dataType: "json",
+            data: {'id': $(this).val()},
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (resultado) {
+                location.reload();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("No de ver");
+            }
+        });
+
 
 
     });
@@ -162,16 +310,10 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-
 });
+
+
+
 
 
 function templateCatalogo(catalogoItem){
@@ -202,7 +344,7 @@ function templateCatalogo(catalogoItem){
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Modificar un jeroglífico" data-toggle="modal" id="editar" data-target="#modificar">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Eliminar un jeroglífico">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Eliminar un jeroglífico" id="eliminarJero">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </button>
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar los comentarios">

@@ -27,6 +27,19 @@ class jeroglificoController extends Controller
     public function store(Request $request)
     {
         //Se inicia por instanciar los archivos
+
+        $validatedData = $request->validate([
+            'imagen1' => 'required|file|image|mimes:png, jpg, jpeg|max:5000',
+            'imagen2' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'imagen3' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'gardiner' => 'required|max:12',
+            'transliteracion' => 'required|max:30',
+            'seleccion' => 'required',
+            'sentido' => 'required|max:180',
+            'descripcion'  => 'max:220'
+            ]);
+
+
         $jero = new jeroglifico();
 
         //Se ingresan los valores capturados en los contenedores de jeroglifico
@@ -35,6 +48,7 @@ class jeroglificoController extends Controller
         $jero->sentido = $request->sentido;
         $jero->nombre_usuario = \Auth::user()->name . " " . \Auth::user()->lastname;
         $jero->catalogo_id = $request->seleccion;
+        $jero->visibilidad = true;
         //Se guardan los valores en la tabla jeroglifico
         $dir = $jero->save();
         
@@ -142,6 +156,16 @@ class jeroglificoController extends Controller
 
     public function update(Request $request)
     {
+        $validatedData = $request->validate([
+            'imagen0' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'imagen1' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'imagen2' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'gandiner' => 'required|max:12',
+            'transliteracion' => 'required|max:30',
+            'significado' => 'required|max:180',
+            'descripcion'  => 'max:220'
+            ]);
+
 
         $vw_jero = $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->first();
         
@@ -152,6 +176,7 @@ class jeroglificoController extends Controller
         $jero->sentido = $request->significado;
         $jero->nombre_usuario = \Auth::user()->name ." ". \Auth::user()->lastname;
         $jero->catalogo_id = $request->seleccion;
+        $jero->visibilidad = true;
         
         $update = $jero->update();
 
@@ -250,12 +275,36 @@ class jeroglificoController extends Controller
 
     }
 
-    public function jq_consultar(Request $request){
+    public function jq_anularFoto(Request $request)
+    {
+        $im = Imagen_Jeroglifico::find($request->id);
+        if ($im->ruta_imagen != "system/no-foto.jpg") {
+            $nombreImg = explode('/', $im->ruta_imagen);
+            $val = rename ( $im->ruta_imagen, "imagenes/basurero/" . $nombreImg[3] );
+            if($val){
+                $im->ruta_imagen = "system/no-foto.jpg";
+                $im->update();
+            }
+        }
+        return response()->json(true);
+    }
+
+    public function jq_consultar(Request $request)
+    {
         $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->get();
         $imagenes = Imagen_jeroglifico::where('jeroglifico_id', $datos[0]->id)->get();
         $array = [$datos, $imagenes];
         return response()->json($array);
     }
+
+    public function jq_desactivarJero(Request $request)
+    {
+        $jero = Jeroglifico::find($request->id);
+        $jero->visibilidad = 0;
+        $v = $jero->update();
+        return response()->json($v);
+    }
+
 
     public function guardarImagenResize($image, $idCatalogo){
 

@@ -6,9 +6,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-3" style="border: 1px solid black">
+        <div class="col-3">
             <div class="form-group">
-                <label for="gardiner"><h4>Selecciona un Gardiner</h4></label>
+                <label for="gardiner"><h4>Selecciona un Gandiner</h4></label>
                 <select  id="seleccion" class="custom-select">
                     <option>Seleccione...</option>
                     @foreach ($catalogo as $cat)
@@ -87,7 +87,7 @@
             </div>
             </p>
         </div>
-        <div class="col-9" style="border: 1px solid black">
+        <div class="col-9">
             <div id="guia" class="row">
                 <div id="msj"></div>
             </div>
@@ -106,9 +106,18 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-md-4"><center>Jeroglífico</center><img id="img0" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
-                <div class="col-md-4"><center>Cursivo</center><img id="img1" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
-                <div class="col-md-4"><center>Hierático</center><img id="img2" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico"></div>
+                <div class="col-md-4">
+                    <center>Jeroglífico</center>
+                        <img id="img0" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico">
+                </div>
+                <div class="col-md-4">
+                    <center>Cursivo</center>
+                    <img id="img1" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico">
+                </div>
+                <div class="col-md-4">
+                    <center>Hierático</center>
+                    <img id="img2" src="../system/no-foto.jpg" alt="Jeroglífico" class="img-fluid" title="Jeroglífico">
+                </div>
             </div><br>
             <div class="row">
                 <div class="col-md-4"><b>Gandiner: </b><div id="gandiner">Cargando...</div></div>
@@ -172,12 +181,32 @@
                 <div id="mostrarFoto" class="btn btn-primary">Cambiar las imágenes</div>
                 <div id="invisible"><br>
                     <div class="row">
-                        <div class="col-4"><label for=""><center>Jeroglífico</center></label><img src="" id="mod0" alt="" class="img-fluid"><p><center><div id="borrar0" value="" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </div></center></p></div>
-                        <div class="col-4"><label for=""><center>Cursivo</center></label><img src="" id="mod1" alt="" class="img-fluid"><p><center><div id="borrar1" value="" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </div></center></p></div>
-                        <div class="col-4"><label for=""><center>Hierático</center></label><img src="" id="mod2" alt="" class="img-fluid"><p><center><div id="borrar2" value="" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </div></center></p></div>
+                        <div class="col-4">
+                            <label for=""><center>Jeroglífico</center></label>
+                            <img src="" id="mod0" alt="" class="img-fluid">
+                            <p>
+                                <center>
+                                    <div  title="No se puede borrar esta imagen, solo sustituir" disabled="true" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="false" disabled></i></div>
+                                </center>
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <label for=""><center>Cursivo</center></label>
+                            <img src="" id="mod1" alt="" class="img-fluid">
+                            <p>
+                                <center>
+                                    <button type="button" id="borrar1" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                </center>
+                            </p>
+                        </div>
+                        <div class="col-4"><label for=""><center>Hierático</center></label>
+                            <img src="" id="mod2" alt="" class="img-fluid">
+                            <p>
+                                <center>
+                                    <button type="button" id="borrar2" title="Borrar esta imagen" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i></button type="button">
+                                </center>
+                            </p>
+                        </div>
                     </div>
                     <p>
                         <h5><i>Puede sustituir la imagen que desee cargando en el sistema</i></h5>
@@ -191,7 +220,7 @@
                         <input type="file" name="imagen1" id="imagenB" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Agregue la 3ra principal (Hierático)</label>
+                        <label for="">Agregue la 3ra imagen (Hierático)</label>
                         <input type="file" name="imagen2" id="imagenC" class="form-control">
                     </div>                    
                 </div>
@@ -209,8 +238,10 @@
     <script>alert("Se ha realizado la solicitud de manera correcta")</script>
 @endif
 
-@if (session('error'))
-    <script>alert("Hubo un error en el sistema")</script>
+@if ($errors->any())
+    <script>
+        alert("Hubo un error en el sistema.");
+    </script>
 @endif
 
 @endsection
