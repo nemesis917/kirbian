@@ -238,10 +238,11 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '#borrar2' , function(){
-        var valida = confirm("¿Seguro desea eliminare sta imagen?");
+        var valida = confirm("¿Seguro desea eliminare sta imagen2?");
         if (valida == false) {
             return false;
         }
+
         $.ajax({
             url: "../sistema/jeroglifico/foto-estandar",
             type: "post",
@@ -249,7 +250,7 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                $('#mod1').attr('src', '../system/no-foto.jpg');
+                $('#mod2').attr('src', '../system/no-foto.jpg');
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR)
