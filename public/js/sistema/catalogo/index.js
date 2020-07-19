@@ -62,7 +62,7 @@ $(document).ready(function(){
                 $("#trasliteracion").html(resultado[0][0].transliteracion);
                 $("#significado").html(resultado[0][0].significado);
                 $("#descripcion").html(resultado[0][0].descripcion);
-
+                $("#comentario").html(resultado[0][0].comentario);
 
 
             },
@@ -88,7 +88,7 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                console.log(resultado[2]);
+                console.log(resultado[0][0].comentario);
                 $("#gandiner").attr("value", "");
                 $("#trasliteracion").attr("value", "");
                 $("#significado").attr("value", "");
@@ -103,6 +103,7 @@ $(document).ready(function(){
                 $("#transliteracion1").attr("value", resultado[0][0].transliteracion);
                 $("#significado1").attr("value", resultado[0][0].significado);
                 $("#mensajeDescripcion").html(resultado[0][0].descripcion);
+                $("#coment1").html(resultado[0][0].comentario);
                 $("#id").attr("value", resultado[0][0].id);
 
                 for (let index = 0; index < resultado[2].length; index++) {
@@ -142,7 +143,7 @@ $(document).ready(function(){
             var archivo = $("#imagenA").val();
             var extensiones = archivo.substring(archivo.lastIndexOf("."));  
 
-            if(extensiones != ".jpg" && extensiones != ".png")
+            if(extensiones != ".jpg" && extensiones != ".png" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp")
             {
                 alert('El archivo de tipo ' + extensiones + ' no es válido');
                 $("#imagenA").val("");
@@ -154,7 +155,7 @@ $(document).ready(function(){
             var archivo = $("#imagenB").val();
             var extensiones = archivo.substring(archivo.lastIndexOf("."));  
 
-            if(extensiones != ".jpg" && extensiones != ".png")
+            if(extensiones != ".jpg" && extensiones != ".png" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp")
             {
                 alert('El archivo de tipo ' + extensiones + ' no es válido');
                 $("#imagenB").val("");
@@ -166,7 +167,7 @@ $(document).ready(function(){
             var archivo = $("#imagenC").val();
             var extensiones = archivo.substring(archivo.lastIndexOf("."));  
 
-            if(extensiones != ".jpg" && extensiones != ".png")
+            if(extensiones != ".jpg" && extensiones != ".png" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp")
             {
                 alert('El archivo de tipo ' + extensiones + ' no es válido');
                 $("#imagenC").val("");
@@ -180,7 +181,7 @@ $(document).ready(function(){
     $(document).on('change', '#imagen1', function(){
         var archivo = $("#imagen1").val();
         var extensiones = archivo.substring(archivo.lastIndexOf("."));  
-        if(extensiones != ".jpg" && extensiones != ".png")
+        if(extensiones != ".jpg" && extensiones != ".png" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp")
         {
             alert('El archivo de tipo ' + extensiones + ' no es válido');
             $("#imagen1").val("");
@@ -191,7 +192,7 @@ $(document).ready(function(){
     $(document).on('change', '#imagen2', function(){
         var archivo = $("#imagen2").val();
         var extensiones = archivo.substring(archivo.lastIndexOf("."));  
-        if(extensiones != ".jpg" && extensiones != ".png")
+        if(extensiones != ".jpg" && extensiones != ".png" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp")
         {
             alert('El archivo de tipo ' + extensiones + ' no es válido');
             $("#imagen2").val("");
@@ -202,7 +203,7 @@ $(document).ready(function(){
     $(document).on('change', '#imagen3', function(){
         var archivo = $("#imagen3").val();
         var extensiones = archivo.substring(archivo.lastIndexOf("."));  
-        if(extensiones != ".jpg" && extensiones != ".png")
+        if(extensiones != ".jpg" && extensiones != ".png" && extensiones != ".gif" && extensiones != "svg" && extensiones != "webp")
         {
             alert('El archivo de tipo ' + extensiones + ' no es válido');
             $("#imagen3").val("");
@@ -348,9 +349,11 @@ function templateCatalogo(catalogoItem){
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Eliminar un jeroglífico" id="eliminarJero">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar los comentarios">
-                            Comentarios
-                        </button>
+                        <a href="../sistema/jeroglifico/manejo-comentario/${id}">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar los comentarios">
+                                Comentarios
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

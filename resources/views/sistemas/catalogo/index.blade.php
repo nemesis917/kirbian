@@ -20,9 +20,25 @@
             <p>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Cargar un catálogo
-            </button>
+
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Cargar un catálogo
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ route('sistema.jeroflifico.mostrarF') }}">
+                            <button type="button" class="btn btn-success">
+                                Fuentes paleográficas
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </table>
 
             
             <!-- Modal -->
@@ -48,11 +64,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese el significado: </label>
-                                <input type="text" name="sentido" class="form-control" maxlength="180" required>
+                                <input type="text" name="sentido" class="form-control" maxlength="1200" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese su descripción: </label>
-                                <textarea name="descripcion" id="" class="form-control" maxlength="220"></textarea>
+                                <textarea name="descripcion" id="" class="form-control" maxlength="1200"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Ingrese su comentario: </label>
+                                <input type="text" name="comentario" id="" class="form-control" maxlength="1200">
                             </div>
                             <div class="form-group">
                                 <label for="gandiner">Selecciona un Gandiner</label>
@@ -66,15 +86,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la imagen principal (Jeroglífico)</label>
-                                <input type="file" name="imagen1" id="imagen1" class="form-control" required>
+                                <input type="file" name="imagen1" id="imagen1" class="form-control" required  accept="image/*">
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la 2da imagen  (Cursivo)</label>
-                                <input type="file" name="imagen2" id="imagen2" class="form-control">
+                                <input type="file" name="imagen2" id="imagen2" class="form-control" accept="image/*">
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la 3ra principal (Hierático)</label>
-                                <input type="file" name="imagen3" id="imagen3" class="form-control">
+                                <input type="file" name="imagen3" id="imagen3" class="form-control" accept="image/*">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -128,6 +148,9 @@
             </div><hr>
             <div class="row">
                 <div class="col-md-12"><b>Descripción: </b><div id="descripcion">Cargando...</div></div>
+            </div><hr>
+            <div class="row">
+                <div class="col-md-12"><b>Comentario: </b><div id="comentario">Cargando...</div></div>
             </div>
         </div>
         <div class="modal-footer">
@@ -161,11 +184,15 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese el significado: </label>
-                    <input type="text" name="significado" id="significado1" class="form-control" maxlength="180" required>
+                    <input type="text" name="significado" id="significado1" class="form-control" maxlength="1200" required>
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese su descripción: </label>
-                    <textarea name="descripcion" id="mensajeDescripcion" class="form-control" maxlength="220"></textarea>
+                    <textarea name="descripcion" id="mensajeDescripcion" class="form-control" maxlength="1200"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">Ingrese su comentario: </label>
+                    <textarea name="comentario" id="coment1" class="form-control" maxlength="1200"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="gandiner">Selecciona un Gandiner</label>

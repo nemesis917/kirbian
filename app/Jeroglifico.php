@@ -8,7 +8,7 @@ class Jeroglifico extends Model
 {
     protected $table = "jeroglificos";
 
-    protected $fillable = ['gardiner','trasliteracion', 'sentido','nombre_usuario', 'catalogo_id'];
+    protected $fillable = ['gardiner','trasliteracion', 'sentido','nombre_usuario', 'comentario', 'catalogo_id'];
 
     public function descripciones()
     {

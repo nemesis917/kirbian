@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Jeroglifico;
 use App\Descripcion;
 use App\Imagen_jeroglifico;
+use App\Comentario_jero;
 use App\Catalogo;
 use Image;
 
@@ -29,15 +30,16 @@ class jeroglificoController extends Controller
         //Se inicia por instanciar los archivos
 
         $validatedData = $request->validate([
-            'imagen1' => 'required|file|image|mimes:png, jpg, jpeg|max:5000',
-            'imagen2' => 'file|image|mimes:png, jpg, jpeg|max:5000',
-            'imagen3' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'imagen1' => 'required|file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
+            'imagen2' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
+            'imagen3' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
             'gardiner' => 'required|max:12',
             'transliteracion' => 'required|max:30',
             'seleccion' => 'required',
-            'sentido' => 'required|max:180',
-            'descripcion'  => 'max:220'
-            ]);
+            'sentido' => 'required|max:1200',
+            'comentario' => 'max:1200',
+            'descripcion'  => 'max:1200'
+        ]);
 
 
         $jero = new jeroglifico();
@@ -48,7 +50,8 @@ class jeroglificoController extends Controller
         $jero->sentido = $request->sentido;
         $jero->nombre_usuario = \Auth::user()->name . " " . \Auth::user()->lastname;
         $jero->catalogo_id = $request->seleccion;
-        $jero->visibilidad = true;
+        $jero->comentario = $request->comentario;
+        $jero->visibilidad = 1;
         //Se guardan los valores en la tabla jeroglifico
         $dir = $jero->save();
         
@@ -140,9 +143,9 @@ class jeroglificoController extends Controller
 
     }
 
-    public function show()
+    public function mostrarFuentes()
     {
-
+        return view('sistemas.catalogo.mostrarFuentes');
     }
 
     public function edit(Request $request)
@@ -156,14 +159,16 @@ class jeroglificoController extends Controller
 
     public function update(Request $request)
     {
+
         $validatedData = $request->validate([
-            'imagen0' => 'file|image|mimes:png, jpg, jpeg|max:5000',
-            'imagen1' => 'file|image|mimes:png, jpg, jpeg|max:5000',
-            'imagen2' => 'file|image|mimes:png, jpg, jpeg|max:5000',
+            'imagen0' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
+            'imagen1' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
+            'imagen2' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
             'gandiner' => 'required|max:12',
             'transliteracion' => 'required|max:30',
-            'significado' => 'required|max:180',
-            'descripcion'  => 'max:220'
+            'significado' => 'required|max:1300',
+            'comentario' => 'required|max:1300',
+            'descripcion' => 'required|max:1300'
             ]);
 
 
@@ -176,7 +181,8 @@ class jeroglificoController extends Controller
         $jero->sentido = $request->significado;
         $jero->nombre_usuario = \Auth::user()->name ." ". \Auth::user()->lastname;
         $jero->catalogo_id = $request->seleccion;
-        $jero->visibilidad = true;
+        $jero->comentario = $request->comentario;
+
         
         $update = $jero->update();
 
@@ -270,9 +276,13 @@ class jeroglificoController extends Controller
         }
     }
 
-    public function destroy()
+    public function manejoComentario($id)
     {
-
+        $jero = DB::table('vw_ver_jeroglifico')->where('id', $id)->first();
+        $img = Imagen_jeroglifico::where('jeroglifico_id', $id)->whereIn('referencia', [1,2,3])->get();
+        $coment = Comentario_jero::select()->where('jeroglificos_id', $id)->orderBy('id', 'DESC')->get();
+        dump($coment);
+        return view('sistemas.catalogo.comentario')->with('jero', $jero)->with('imagen', $img)->with('coment', $coment);
     }
 
     public function jq_anularFoto(Request $request)
