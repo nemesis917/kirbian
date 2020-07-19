@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2020 a las 09:14:16
+-- Tiempo de generación: 19-07-2020 a las 19:47:08
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -77,8 +77,9 @@ INSERT INTO `catalogo` (`id`, `nombres`, `slug`, `referencias`, `created_at`, `u
 
 CREATE TABLE `comentarios_jero` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `comentario` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comentario` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `puntuacion` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `visibilidad` tinyint(1) NOT NULL,
   `jeroglificos_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -97,6 +98,13 @@ CREATE TABLE `descripcion` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `descripcion`
+--
+
+INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
+(1, 'ssfsdfas ssfsdfas ssfsdfas', 1, '2020-07-19 21:45:08', '2020-07-19 21:45:57');
 
 -- --------------------------------------------------------
 
@@ -127,6 +135,15 @@ CREATE TABLE `imagenes_jeroglificos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `imagenes_jeroglificos`
+--
+
+INSERT INTO `imagenes_jeroglificos` (`id`, `ruta_imagen`, `referencia`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
+(1, 'imagenes/catalogo/55/467-jero-55-845.png', '1', 1, '2020-07-19 21:45:09', '2020-07-19 21:45:09'),
+(2, 'system/no-foto.jpg', '2', 1, '2020-07-19 21:45:09', '2020-07-19 21:45:09'),
+(3, 'system/no-foto.jpg', '3', 1, '2020-07-19 21:45:09', '2020-07-19 21:45:09');
+
 -- --------------------------------------------------------
 
 --
@@ -139,11 +156,19 @@ CREATE TABLE `jeroglificos` (
   `transliteracion` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sentido` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `nombre_usuario` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comentario` text COLLATE utf8mb4_unicode_ci,
   `catalogo_id` bigint(20) UNSIGNED NOT NULL,
   `visibilidad` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `jeroglificos`
+--
+
+INSERT INTO `jeroglificos` (`id`, `gandiner`, `transliteracion`, `sentido`, `nombre_usuario`, `comentario`, `catalogo_id`, `visibilidad`, `created_at`, `updated_at`) VALUES
+(1, 'prueba', 'Nacho', 'ssfsdfas', 'admin admin', 'ssfsdfas ssfsdfas', 55, 1, '2020-07-19 21:45:08', '2020-07-19 21:45:57');
 
 -- --------------------------------------------------------
 
@@ -162,11 +187,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(76, '2014_10_12_000000_create_users_table', 1),
-(77, '2014_10_12_100000_create_password_resets_table', 1),
-(78, '2020_07_10_043508_catalogo', 1),
-(79, '2020_07_11_044749_jeroglificos', 1),
-(80, '2020_07_11_054259_comentarios_jero', 1);
+(91, '2014_10_12_000000_create_users_table', 1),
+(92, '2014_10_12_100000_create_password_resets_table', 1),
+(93, '2020_07_10_043508_catalogo', 1),
+(94, '2020_07_11_044749_jeroglificos', 1),
+(95, '2020_07_11_054259_comentarios_jero', 1);
 
 -- --------------------------------------------------------
 
@@ -233,6 +258,7 @@ CREATE TABLE `vw_ver_jeroglifico` (
 ,`gandiner` varchar(12)
 ,`descripcion` text
 ,`significado` text
+,`comentario` text
 ,`catalogo_id` bigint(20) unsigned
 );
 
@@ -252,7 +278,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_ver_jeroglifico`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_ver_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`descripcion`.`descripcion` AS `descripcion`,`jeroglificos`.`sentido` AS `significado`,`jeroglificos`.`catalogo_id` AS `catalogo_id` from (`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_ver_jeroglifico`  AS  select `jeroglificos`.`id` AS `id`,`jeroglificos`.`transliteracion` AS `transliteracion`,`jeroglificos`.`gandiner` AS `gandiner`,`descripcion`.`descripcion` AS `descripcion`,`jeroglificos`.`sentido` AS `significado`,`jeroglificos`.`comentario` AS `comentario`,`jeroglificos`.`catalogo_id` AS `catalogo_id` from (`jeroglificos` left join `descripcion` on((`descripcion`.`jeroglifico_id` = `jeroglificos`.`id`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -338,7 +364,7 @@ ALTER TABLE `comentarios_jero`
 -- AUTO_INCREMENT de la tabla `descripcion`
 --
 ALTER TABLE `descripcion`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_comentario_jero`
@@ -350,19 +376,19 @@ ALTER TABLE `imagenes_comentario_jero`
 -- AUTO_INCREMENT de la tabla `imagenes_jeroglificos`
 --
 ALTER TABLE `imagenes_jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `jeroglificos`
 --
 ALTER TABLE `jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

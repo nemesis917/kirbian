@@ -281,7 +281,7 @@ class jeroglificoController extends Controller
         $jero = DB::table('vw_ver_jeroglifico')->where('id', $id)->first();
         $img = Imagen_jeroglifico::where('jeroglifico_id', $id)->whereIn('referencia', [1,2,3])->get();
         $coment = Comentario_jero::select()->where('jeroglificos_id', $id)->orderBy('id', 'DESC')->get();
-        dump($coment);
+
         return view('sistemas.catalogo.comentario')->with('jero', $jero)->with('imagen', $img)->with('coment', $coment);
     }
 
