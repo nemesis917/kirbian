@@ -19,8 +19,9 @@
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-layout.css') }}" rel="stylesheet">
 
-
+    @stack('styles-remking')
 </head>
 <body>
     <div id="app">
@@ -38,10 +39,10 @@
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::check())
                             @if(Auth::User()->level=='administrador')
-                                <li class="nav-item">
+                                <li class="nav-item {{ Route::currentRouteNamed('sistema.usuario.index') ? 'active' : '' }} ">
                                     <a class="nav-link" href="{{ route('sistema.usuario.index') }}">Usuarios</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ Route::currentRouteNamed('sistema.catalogo.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('sistema.catalogo.index') }}">Catalogo</a>
                                 </li>
                             @endif
@@ -89,5 +90,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('plugins/jquery/jquery.js') }}" ></script>
+    @stack('script-remking')
+    @stack('script-catalogo-remking')
 </body>
 </html>

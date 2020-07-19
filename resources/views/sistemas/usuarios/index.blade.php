@@ -65,20 +65,7 @@
                 @endforeach
             </tbody>
         </table>
-
-
-
-
-
     </p>
-
-
-
-
-
-
-
-
   
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

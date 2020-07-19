@@ -1,0 +1,8 @@
+.bg-white {
+    background-color: #E8D636!important;
+}
+.navbar-light .navbar-nav .active>.nav-link{
+    background-color:#8ebc3f61;
+    color:white;
+    
+}

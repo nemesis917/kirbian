@@ -15,7 +15,13 @@ class usersController extends Controller
         //retorna a la vista principal de usuarios con todos los usuarios ya en la vista
         return view('sistemas/usuarios/index')->with('usuarios', $usuarios);
     }
-
+    public function paginaWeb()
+    {
+        //Consulta la DB para traerse a todos los usuarios
+        $usuarios = User::select("id","name", "lastname", "email", "level")->get();
+        //retorna a la vista principal de usuarios con todos los usuarios ya en la vista
+        return view('paginaWeb.index')->with('usuarios', $usuarios);
+    }
 
      // Funcion encargada de guardar los datos del usuario
     public function store(Request $request)
