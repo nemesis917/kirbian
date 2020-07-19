@@ -15,8 +15,9 @@ class ComentariosJero extends Migration
     {
         Schema::create('comentarios_jero', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('comentario', 250);
+            $table->text('comentario', 1500);
             $table->char('puntuacion', 1);
+            $table->boolean('visibilidad');
             $table->unsignedBigInteger('jeroglificos_id');
 
             $table->foreign('jeroglificos_id')->references('id')->on('jeroglificos');

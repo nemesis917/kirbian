@@ -17,8 +17,9 @@ class Jeroglificos extends Migration
             $table->bigIncrements('id');
             $table->string('gandiner', 12);
             $table->string('transliteracion', 30);
-            $table->text('sentido');
+            $table->text('sentido', 1300);
             $table->string('nombre_usuario', 70);
+            $table->text('comentario',1300)->nullable();
             $table->unsignedBigInteger('catalogo_id');
             $table->boolean('visibilidad');
 
@@ -38,7 +39,7 @@ class Jeroglificos extends Migration
 
         Schema::create('descripcion', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('descripcion');
+            $table->text('descripcion', 1300);
             $table->unsignedBigInteger('jeroglifico_id');
 
             $table->foreign('jeroglifico_id')->references('id')->on('jeroglificos');

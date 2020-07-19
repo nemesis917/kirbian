@@ -26,6 +26,7 @@ jeroglificos.transliteracion AS transliteracion,
 jeroglificos.gandiner AS gandiner, 
 descripcion.descripcion AS descripcion,
 jeroglificos.sentido AS significado,
+jeroglificos.comentario AS comentario,
 jeroglificos.catalogo_id AS catalogo_id 
 FROM `jeroglificos` 
 LEFT JOIN descripcion on descripcion.jeroglifico_id = jeroglificos.id 
