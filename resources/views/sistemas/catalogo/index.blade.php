@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la imagen principal (Jeroglífico)</label>
-                                <input type="file" name="imagen1" id="imagen1" class="form-control" required  accept="image/*">
+                                <input type="file" name="imagen1" id="imagen1" class="form-control" required accept="image/*">
                             </div>
                             <div class="form-group">
                                 <label for="">Agregue la 2da imagen  (Cursivo)</label>
@@ -239,15 +239,15 @@
                     </p>
                     <div class="form-group">
                         <label for="">Agregue la imagen principal (Jeroglífico)</label>
-                        <input type="file" name="imagen0" id="imagenA" class="form-control">
+                        <input type="file" name="imagen0" id="imagenA" class="form-control" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label for="">Agregue la 2da imagen  (Cursivo)</label>
-                        <input type="file" name="imagen1" id="imagenB" class="form-control">
+                        <input type="file" name="imagen1" id="imagenB" class="form-control" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label for="">Agregue la 3ra imagen (Hierático)</label>
-                        <input type="file" name="imagen2" id="imagenC" class="form-control">
+                        <input type="file" name="imagen2" id="imagenC" class="form-control" accept="image/*">
                     </div>                    
                 </div>
             </div>
