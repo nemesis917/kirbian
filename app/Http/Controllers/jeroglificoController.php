@@ -280,9 +280,10 @@ class jeroglificoController extends Controller
     {
         $jero = DB::table('vw_ver_jeroglifico')->where('id', $id)->first();
         $img = Imagen_jeroglifico::where('jeroglifico_id', $id)->whereIn('referencia', [1,2,3])->get();
-        $coment = Comentario_jero::select()->where('jeroglificos_id', $id)->orderBy('id', 'DESC')->get();
+        $coment = DB::table('vw_ver_comentarios')->where('jeroglificos_id', $id)->orderBy('id', 'DESC')->get();
+        $fuentes = DB::table('vw_ver_img_paleografica')->where('jeroglificos_id', $jero->id)->orderBy('id', 'DESC')->get();
 
-        return view('sistemas.catalogo.comentario')->with('jero', $jero)->with('imagen', $img)->with('coment', $coment);
+        return view('sistemas.catalogo.comentario')->with('jero', $jero)->with('imagen', $img)->with('coment', $coment)->with('fuentes', $fuentes);
     }
 
     public function jq_anularFoto(Request $request)

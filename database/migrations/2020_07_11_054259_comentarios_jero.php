@@ -19,17 +19,21 @@ class ComentariosJero extends Migration
             $table->char('puntuacion', 1);
             $table->boolean('visibilidad');
             $table->unsignedBigInteger('jeroglificos_id');
-
+            $table->unsignedBigInteger('users_id');
+            
             $table->foreign('jeroglificos_id')->references('id')->on('jeroglificos');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
 
         Schema::create('imagenes_comentario_jero', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ruta_img_jero', 250);
-            $table->unsignedBigInteger('comentarios_id');
+            $table->unsignedBigInteger('jeroglificos_id');
+            $table->unsignedBigInteger('users_id');
 
-            $table->foreign('comentarios_id')->references('id')->on('comentarios_jero');
+            $table->foreign('jeroglificos_id')->references('id')->on('jeroglificos');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
         });
 

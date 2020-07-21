@@ -31,6 +31,40 @@ jeroglificos.catalogo_id AS catalogo_id
 FROM `jeroglificos` 
 LEFT JOIN descripcion on descripcion.jeroglifico_id = jeroglificos.id 
 
+------------------ ver comentarios con sus publicistas ---------------
+
+
+CREATE OR REPLACE VIEW vw_ver_comentarios AS
+SELECT 
+comentarios_jero.id AS id,
+comentarios_jero.`comentario` AS comentario,
+comentarios_jero.puntuacion AS puntuacion,
+comentarios_jero.visibilidad AS visibilidad,
+comentarios_jero.jeroglificos_id AS jeroglificos_id,
+CONCAT_WS(' ', users.name, users.lastname ) AS nombre,
+users.email AS correo
+
+
+FROM `comentarios_jero`
+LEFT JOIN users ON users.id = comentarios_jero.users_id
+
+----------------- ver imagenes paleograficas -------------------
+
+
+CREATE OR REPLACE VIEW vw_ver_img_paleografica AS
+SELECT 
+  imagenes_comentario_jero.`id` as id,
+  imagenes_comentario_jero.ruta_img_jero AS ruta_img_jero,
+  imagenes_comentario_jero.jeroglificos_id AS jeroglificos_id,
+  CONCAT_WS(' ', users.name, users.lastname ) AS nombre,
+  users.email AS correo
+
+
+FROM `imagenes_comentario_jero` 
+LEFT JOIN users ON users.id = imagenes_comentario_jero.users_id
+
+
+
 
 ------------ datos de primer acceso -------------------
 
