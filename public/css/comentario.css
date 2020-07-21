@@ -28,3 +28,15 @@ html {
 #img1 {
   text-align: center;
 }
+
+#listado {
+  max-height: 800px;
+  border: 1px solid gray;
+  overflow: scroll;
+}
+
+#fuentesP {
+  max-height: 400px;
+  border: 1px solid gray;
+
+}

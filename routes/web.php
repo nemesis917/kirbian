@@ -43,6 +43,8 @@ Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], func
     Route::post('desactivarJeroglifico', 'jeroglificoController@jq_desactivarJero');
     Route::get('fuentes-paleograficas','jeroglificoController@mostrarFuentes')->name('sistema.jeroflifico.mostrarF');
     Route::get('manejo-comentario/{id}','jeroglificoController@manejoComentario')->name('sistema.jeroglifico.comentario');
+    Route::post('aprobar-comentario','jeroglificoController@jq_aprobarComentario');
+    Route::post('eliminar-comentario','jeroglificoController@jq_eliminarComentario');
 });
 
 Route::group(['prefix' => 'control',  'middleware' => 'auth'], function () {

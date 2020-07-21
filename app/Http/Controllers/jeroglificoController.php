@@ -315,7 +315,21 @@ class jeroglificoController extends Controller
         return response()->json($v);
     }
 
+    public function jq_aprobarComentario(Request $request){
 
+        $jero = Comentario_jero::find($request->id);
+        $jero->visibilidad = "1";
+        $valida = $jero->update();
+        return response()->json($valida);
+
+    }
+
+    public function jq_eliminarComentario(Request $request){
+        $jero = Comentario_jero::find($request->id);
+        $valida = $jero->delete();
+        return response()->json($valida);
+    }
+   
     public function guardarImagenResize($image, $idCatalogo){
 
             //tomamos la extension de la imagen y nos aseguramos que es permitida
