@@ -54,29 +54,29 @@
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="">Ingrese el Gandiner: </label>
-                                <input type="text" name="gardiner" class="form-control" maxlength="12" required>
+                                <label for="">Ingrese el Gandiner (*): </label>
+                                <input type="text" name="gardiner" id="gardiner" class="form-control" maxlength="12" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Ingrese la transliteración: </label>
-                                <input type="text" name="transliteracion" class="form-control" maxlength="30" required>
+                                <label for="">Ingrese la transliteración (*): </label>
+                                <input type="text" name="transliteracion" id="transliteracion" class="form-control" maxlength="30" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Ingrese el significado: </label>
-                                <input type="text" name="sentido" class="form-control" maxlength="1200" required>
+                                <label for="">Ingrese el significado (*): </label>
+                                <input type="text" name="sentido" id="sentido" class="form-control" maxlength="1200" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese su descripción: </label>
-                                <textarea name="descripcion" id="" class="form-control" maxlength="1200"></textarea>
+                                <textarea name="descripcion" id="descripcion" class="form-control" maxlength="1200"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese su comentario: </label>
-                                <input type="text" name="comentario" id="" class="form-control" maxlength="1200">
+                                <input type="text" name="comentario" id="comentario" class="form-control" maxlength="1200">
                             </div>
                             <div class="form-group">
-                                <label for="gandiner">Selecciona un Gandiner</label>
-                                <select  name="seleccion" class="custom-select" required>
-                                    <option>Seleccione...</option>
+                                <label for="gandiner">Selecciona un Gandiner (*)</label>
+                                <select  name="seleccion" id="seleccion" class="custom-select" required>
+                                    <option value="">Seleccione...</option>
                                     @foreach ($catalogo as $cat)
                                     <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
                                     @endforeach
@@ -84,7 +84,7 @@
                                 <br>
                             </div>
                             <div class="form-group">
-                                <label for="">Agregue la imagen principal (Jeroglífico)</label>
+                                <label for="">Agregue la imagen principal (*) (Jeroglífico)</label>
                                 <input type="file" name="imagen1" id="imagen1" class="form-control" required accept="image/*">
                             </div>
                             <div class="form-group">
@@ -98,7 +98,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <input type="submit" class="btn btn-primary" value="Guardar datos">
+                            <input type="submit" class="btn btn-primary" id="guardarDatos" value="Guardar datos">
                         </div>
                     </form>
                 </div>
@@ -143,13 +143,13 @@
                 <div class="col-md-8"><b>Transliteración: </b><div id="trasliteracion">Cargando...</div></div>
             </div><hr>
             <div class="row">
-                <div class="col-md-12"><b>Significado: </b><div id="significado">Cargando...</div></div>
+                <div class="col-md-12"><b>Significado: </b><div id="significadoVer">Cargando...</div></div>
             </div><hr>
             <div class="row">
-                <div class="col-md-12"><b>Descripción: </b><div id="descripcion">Cargando...</div></div>
+                <div class="col-md-12"><b>Descripción: </b><div id="descripcionVer">Cargando...</div></div>
             </div><hr>
             <div class="row">
-                <div class="col-md-12"><b>Comentario: </b><div id="comentario">Cargando...</div></div>
+                <div class="col-md-12"><b>Comentario: </b><div id="comentarioVer">Cargando...</div></div>
             </div>
         </div>
         <div class="modal-footer">
@@ -195,8 +195,8 @@
                 </div>
                 <div class="form-group">
                     <label for="gandiner">Selecciona un Gandiner</label>
-                    <select name="seleccion" class="custom-select" required>
-                        <option>Seleccione...</option>
+                    <select name="seleccion" id="seleccion1" class="custom-select" required>
+                        <option value="">Seleccione...</option>
                         @foreach ($catalogo as $cat)
                         <option value="{{ $cat->id }}" id="seleccion1-{{ $cat->id }}" >{{ $cat->nombres }}</option>
                         @endforeach
@@ -253,7 +253,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <input type="submit" class="btn btn-primary" value="Guardar datos">
+                <input type="submit" class="btn btn-primary" id="modificarDatos" value="Modificar datos">
             </div>
         </form>
     </div>

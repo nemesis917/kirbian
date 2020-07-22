@@ -45,6 +45,8 @@ Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], func
     Route::get('manejo-comentario/{id}','jeroglificoController@manejoComentario')->name('sistema.jeroglifico.comentario');
     Route::post('aprobar-comentario','jeroglificoController@jq_aprobarComentario');
     Route::post('eliminar-comentario','jeroglificoController@jq_eliminarComentario');
+    Route::post('cambiar-paleografica','jeroglificoController@jq_cambiarFp');
+    Route::post('borrar-paleografica','jeroglificoController@jq_borrarFp');
 });
 
 Route::group(['prefix' => 'control',  'middleware' => 'auth'], function () {

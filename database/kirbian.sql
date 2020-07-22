@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2020 a las 12:55:03
+-- Tiempo de generación: 22-07-2020 a las 21:29:51
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -91,7 +91,8 @@ CREATE TABLE `comentarios_jero` (
 --
 
 INSERT INTO `comentarios_jero` (`id`, `comentario`, `puntuacion`, `visibilidad`, `jeroglificos_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', '0', 0, 1, 1, NULL, NULL);
+(2, 'sectetur adipiscing elit, nt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', '0', 0, 1, 1, NULL, '2020-07-22 20:55:01'),
+(3, 'sectetur adipiscing elit, sed do eiusdidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi', '0', 0, 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,8 @@ CREATE TABLE `descripcion` (
 --
 
 INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
-(1, 'buasfufuoasguoasf', 1, '2020-07-21 13:13:41', '2020-07-21 13:18:38');
+(1, 'zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx', 1, '2020-07-22 20:11:21', '2020-07-22 20:11:21'),
+(2, 'dssddf sdfd dssddf sdfd dssddf sdfd', 2, '2020-07-22 23:18:55', '2020-07-22 23:18:55');
 
 -- --------------------------------------------------------
 
@@ -123,22 +125,12 @@ INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, 
 CREATE TABLE `imagenes_comentario_jero` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `ruta_img_jero` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `visibilidad` tinyint(1) NOT NULL,
   `jeroglificos_id` bigint(20) UNSIGNED NOT NULL,
   `users_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `imagenes_comentario_jero`
---
-
-INSERT INTO `imagenes_comentario_jero` (`id`, `ruta_img_jero`, `jeroglificos_id`, `users_id`, `created_at`, `updated_at`) VALUES
-(1, 'imagenes/comentario/fuentes-paleografica.jpg', 1, 1, NULL, NULL),
-(2, 'imagenes/comentario/fuentes-paleografica.jpg', 1, 1, NULL, NULL),
-(3, 'imagenes/comentario/fuentes-paleografica.jpg', 1, 1, NULL, NULL),
-(4, 'imagenes/comentario/fuentes-paleografica.jpg', 1, 1, NULL, NULL),
-(5, 'imagenes/comentario/fuentes-paleografica.jpg', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -160,9 +152,12 @@ CREATE TABLE `imagenes_jeroglificos` (
 --
 
 INSERT INTO `imagenes_jeroglificos` (`id`, `ruta_imagen`, `referencia`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
-(1, 'imagenes/catalogo/55/797-jero-55-767.png', '1', 1, '2020-07-21 13:13:42', '2020-07-21 13:13:42'),
-(2, 'imagenes/catalogo/55/278-jero-55-758.png', '2', 1, '2020-07-21 13:13:42', '2020-07-21 13:18:38'),
-(3, 'system/no-foto.jpg', '3', 1, '2020-07-21 13:13:42', '2020-07-21 13:13:42');
+(1, 'imagenes/catalogo/55/976-jero-55-923.png', '1', 1, '2020-07-22 20:11:21', '2020-07-22 20:11:21'),
+(2, 'system/no-foto.jpg', '2', 1, '2020-07-22 20:11:21', '2020-07-22 20:11:21'),
+(3, 'system/no-foto.jpg', '3', 1, '2020-07-22 20:11:21', '2020-07-22 20:11:21'),
+(4, 'imagenes/catalogo/55/734-jero-55-606.png', '1', 2, '2020-07-22 23:18:57', '2020-07-22 23:18:57'),
+(5, 'system/no-foto.jpg', '2', 2, '2020-07-22 23:18:57', '2020-07-22 23:18:57'),
+(6, 'system/no-foto.jpg', '3', 2, '2020-07-22 23:18:57', '2020-07-22 23:18:57');
 
 -- --------------------------------------------------------
 
@@ -188,7 +183,8 @@ CREATE TABLE `jeroglificos` (
 --
 
 INSERT INTO `jeroglificos` (`id`, `gandiner`, `transliteracion`, `sentido`, `nombre_usuario`, `comentario`, `catalogo_id`, `visibilidad`, `created_at`, `updated_at`) VALUES
-(1, 'Prueba', 'de nacho', 'otra prueba', 'admin admin', 'comentario sin sentido', 55, 1, '2020-07-21 13:13:41', '2020-07-21 13:13:41');
+(1, 'zxzxvxzvzx', 'zxzxv xzvzx', 'zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx', 'admin admin', 'zxzxv xzvzx  zxzxv xzvzx  zxzxv xzvzx', 55, 1, '2020-07-22 20:11:21', '2020-07-22 20:11:21'),
+(2, 'dssddf sdfd', 'dssddf sdfd dssddf sdfd', 'dssddf sdfd dssddf sdfd dssddf sdfd dssddf sdfd', 'admin admin', 'dssddf sdfd dssddf sdfd dssddf sdfd dssddf sdfd', 55, 1, '2020-07-22 23:18:55', '2020-07-22 23:18:55');
 
 -- --------------------------------------------------------
 
@@ -207,11 +203,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(101, '2014_10_12_000000_create_users_table', 1),
-(102, '2014_10_12_100000_create_password_resets_table', 1),
-(103, '2020_07_10_043508_catalogo', 1),
-(104, '2020_07_11_044749_jeroglificos', 1),
-(105, '2020_07_11_054259_comentarios_jero', 1);
+(106, '2014_10_12_000000_create_users_table', 1),
+(107, '2014_10_12_100000_create_password_resets_table', 1),
+(108, '2020_07_10_043508_catalogo', 1),
+(109, '2020_07_11_044749_jeroglificos', 1),
+(110, '2020_07_11_054259_comentarios_jero', 1);
 
 -- --------------------------------------------------------
 
@@ -291,6 +287,7 @@ CREATE TABLE `vw_ver_comentarios` (
 CREATE TABLE `vw_ver_img_paleografica` (
 `id` bigint(20) unsigned
 ,`ruta_img_jero` varchar(250)
+,`visibilidad` tinyint(1)
 ,`jeroglificos_id` bigint(20) unsigned
 ,`nombre` varchar(61)
 ,`correo` varchar(120)
@@ -337,7 +334,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `vw_ver_img_paleografica`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_ver_img_paleografica`  AS  select `imagenes_comentario_jero`.`id` AS `id`,`imagenes_comentario_jero`.`ruta_img_jero` AS `ruta_img_jero`,`imagenes_comentario_jero`.`jeroglificos_id` AS `jeroglificos_id`,concat_ws(' ',`users`.`name`,`users`.`lastname`) AS `nombre`,`users`.`email` AS `correo` from (`imagenes_comentario_jero` left join `users` on((`users`.`id` = `imagenes_comentario_jero`.`users_id`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_ver_img_paleografica`  AS  select `imagenes_comentario_jero`.`id` AS `id`,`imagenes_comentario_jero`.`ruta_img_jero` AS `ruta_img_jero`,`imagenes_comentario_jero`.`visibilidad` AS `visibilidad`,`imagenes_comentario_jero`.`jeroglificos_id` AS `jeroglificos_id`,concat_ws(' ',`users`.`name`,`users`.`lastname`) AS `nombre`,`users`.`email` AS `correo` from (`imagenes_comentario_jero` left join `users` on((`users`.`id` = `imagenes_comentario_jero`.`users_id`))) ;
 
 -- --------------------------------------------------------
 
@@ -428,37 +425,37 @@ ALTER TABLE `catalogo`
 -- AUTO_INCREMENT de la tabla `comentarios_jero`
 --
 ALTER TABLE `comentarios_jero`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `descripcion`
 --
 ALTER TABLE `descripcion`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_comentario_jero`
 --
 ALTER TABLE `imagenes_comentario_jero`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_jeroglificos`
 --
 ALTER TABLE `imagenes_jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `jeroglificos`
 --
 ALTER TABLE `jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

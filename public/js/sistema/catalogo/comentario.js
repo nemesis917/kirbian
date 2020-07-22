@@ -2,11 +2,6 @@ $(document).ready(function(){
 
     $(document).on('click', '#comentAceptar', function(){
 
-        var pregunta = confirm("¿Esta seguro de hacer publico este comentario?");
-        if (pregunta != true) {
-            return false;
-        }
-
         $.ajax({
             url: "../aprobar-comentario",
             type: "post",
@@ -14,7 +9,6 @@ $(document).ready(function(){
             data: {'id': $(this).val()},
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (resultado) {
-                alert("Su solicitud ha sido atendida satisfactoriamente.");
                 location.reload();
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -59,6 +53,51 @@ $(document).ready(function(){
             }
         });
     });
+
+    $(document).on("click", "#montrarFP", function(){
+        $.ajax({
+            type: "post",
+            url: "../cambiar-paleografica",
+            data: {'id': $(this).val()},
+            dataType: "json",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (response) {
+                location.reload();
+            }, error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("Su solicitud no se procesó desde javascript");
+            }
+        });
+    });
+
+    $(document).on("click", "#borrarFP", function(){
+        $.ajax({
+            type: "post",
+            url: "../borrar-paleografica",
+            data: {'id': $(this).val()},
+            dataType: "json",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success: function (response) {
+                location.reload();
+            }, error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR)
+                let msg = jqXHR.responseJSON.message;
+                let responseText = jqXHR.responseText;
+                console.log(msg)
+                console.log(responseText)
+                // console.log(textStatus)
+                // console.log(errorThrown)
+                alert("Su solicitud no se procesó desde javascript");
+            }
+        });
+    });
+
 
 
 });

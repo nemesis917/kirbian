@@ -29,6 +29,7 @@ class ComentariosJero extends Migration
         Schema::create('imagenes_comentario_jero', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ruta_img_jero', 250);
+            $table->boolean('visibilidad');
             $table->unsignedBigInteger('jeroglificos_id');
             $table->unsignedBigInteger('users_id');
 

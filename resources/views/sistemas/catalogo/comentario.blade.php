@@ -38,12 +38,35 @@
             <div class="row">
             <h4>Fuentes paleográficas</h4>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    @foreach ($fuentes as $f)
-                    <img src="{{ url($f->ruta_img_jero) }}" id="escala" class="img-fluid rounded float-left">
-                    @endforeach
+            <div id="fp">
+                @foreach ($fuentes as $f)
+                <div class="row">
+                    <div class="col-3">
+                        <img src="{{ url($f->ruta_img_jero) }}" id="escala" class="img-fluid rounded">   
+                    </div>
+                    <div id="texto">
+                        <h6 style="font-size: 10px; color:gray;">rosman.gonzalez@jhcpconstruccion.com</h6>
+                        <h6 style="font-size: 10px; color:gray;">Rosman Gonzalez</h6>
+
+                        <div class="d-flex justify-content-between align-items-center btn-sm ">
+                            <div class="btn-group">
+                            @if ($f->visibilidad == 0)
+                                <button type="button" class="btn btn-sm btn-outline-secondary" value="{{ $f->id }}" title="Mostrar al público" data-toggle="modal" id="montrarFP" data-target="#consultar">
+                                    s
+                                </button>  
+                            @else
+                                <button type="button" class="btn btn-sm btn-outline-secondary" value="{{ $f->id }}" title="Mostrar al público" data-toggle="modal" id="montrarFP" data-target="#consultar">
+                                    c
+                                </button>                                  
+                            @endif
+                                <button type="button" class="btn btn-sm btn-outline-secondary" value="{{ $f->id }}" title="Eliminar esta fuente paleográfica" data-toggle="modal" id="borrarFP" data-target="#modificar">
+                                    n
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                @endforeach
             </div>
         </div>
 
@@ -56,7 +79,7 @@
                         <img src="../../../system/coment.png" id="imgComent" class="img-fluid">
                         <div id="botonesComentario">
                             @if ($c->visibilidad == 1)
-                            <button type="button" id="comentAceptar"  class="btn btn-warning btn-sm">C</button>
+                            <button type="button" id="comentAceptar"  value="{{ $c->id }}" class="btn btn-warning btn-sm">C</button>
                             @else
                             <button type="button" id="comentAceptar" value="{{ $c->id }}" class="btn btn-success btn-sm">A</button>
                             @endif

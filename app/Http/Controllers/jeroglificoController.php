@@ -9,6 +9,7 @@ use App\Jeroglifico;
 use App\Descripcion;
 use App\Imagen_jeroglifico;
 use App\Comentario_jero;
+use App\Imagen_comentario_jero;
 use App\Catalogo;
 use Image;
 
@@ -319,7 +320,13 @@ class jeroglificoController extends Controller
     public function jq_aprobarComentario(Request $request){
 
         $jero = Comentario_jero::find($request->id);
-        $jero->visibilidad = "1";
+
+        if ($jero->visibilidad == 1) {
+            $jero->visibilidad = 0;
+        } else {
+            $jero->visibilidad = 1;
+        }
+        
         $valida = $jero->update();
         return response()->json($valida);
 
@@ -331,6 +338,48 @@ class jeroglificoController extends Controller
         return response()->json($valida);
     }
    
+    public function jq_cambiarFp(Request $request)
+    {
+        $imgCom = Imagen_comentario_jero::find($request->id);
+
+        if ($imgCom->visibilidad == 1) {
+            $imgCom->visibilidad = 0;
+        } else {
+            $imgCom->visibilidad = 1;
+        }
+
+        $valida = $imgCom->save();
+
+        if ($valida) {
+            return response()->json($valida);
+        }
+    }
+
+    public function jq_borrarFp(Request $request)
+    {
+        $imgCom = Imagen_comentario_jero::find($request->id);
+        $nombreImg = explode('/', $imgCom->ruta_img_jero);
+        $elim = rename ( $imgCom->ruta_img_jero, "imagenes/basurero/" . $nombreImg[2]);
+        if ($elim) {
+            $valida = $imgCom->delete();
+        }
+
+        if ($valida) {
+            return response()->json($valida);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    
     public function guardarImagenResize($image, $idCatalogo){
 
             //tomamos la extension de la imagen y nos aseguramos que es permitida

@@ -50,8 +50,9 @@ $(document).ready(function(){
                 $("#img2").attr("src","../system/no-foto.jpg");
                 $("#gandiner").html("");
                 $("#trasliteracion").html("");
-                $("#significado").html("");
-                $("#descripcion").html("");
+                $("#significadoVer").html("");
+                $("#descripcionVer").html("");
+                $("#comentarioVer").html("");
 
 
                 for (let index = 0; index < resultado[1].length; index++) {
@@ -60,9 +61,9 @@ $(document).ready(function(){
 
                 $("#gandiner").html(resultado[0][0].gandiner);
                 $("#trasliteracion").html(resultado[0][0].transliteracion);
-                $("#significado").html(resultado[0][0].significado);
-                $("#descripcion").html(resultado[0][0].descripcion);
-                $("#comentario").html(resultado[0][0].comentario);
+                $("#significadoVer").html(resultado[0][0].significado);
+                $("#descripcionVer").html(resultado[0][0].descripcion);
+                $("#comentarioVer").html(resultado[0][0].comentario);
 
 
             },
@@ -292,12 +293,64 @@ $(document).ready(function(){
             }
         });
 
-
-
     });
 
+    $("#guardarDatos").click(function(){
+
+        if ($('#gardiner').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#transliteracion').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#sentido').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#seleccion').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#imagen1').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }      
+
+        $('#guardarDatos').attr('disabled', true);
+        $('#guardarDatos').attr('value', 'Guardando...');
+    });
+
+    $('#modificarDatos').click(function(){
+        if ($('#gardiner1').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#transliteracion1').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#significado1').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#seleccion1').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
 
 
+        $('#guardarDatos').attr('disabled', true);
+        $('#guardarDatos').attr('value', 'Cambiando...');
+    });
 
 
 

@@ -50,11 +50,11 @@ LEFT JOIN users ON users.id = comentarios_jero.users_id
 
 ----------------- ver imagenes paleograficas -------------------
 
-
 CREATE OR REPLACE VIEW vw_ver_img_paleografica AS
 SELECT 
   imagenes_comentario_jero.`id` as id,
   imagenes_comentario_jero.ruta_img_jero AS ruta_img_jero,
+  imagenes_comentario_jero.visibilidad AS visibilidad,
   imagenes_comentario_jero.jeroglificos_id AS jeroglificos_id,
   CONCAT_WS(' ', users.name, users.lastname ) AS nombre,
   users.email AS correo
@@ -62,8 +62,6 @@ SELECT
 
 FROM `imagenes_comentario_jero` 
 LEFT JOIN users ON users.id = imagenes_comentario_jero.users_id
-
-
 
 
 ------------ datos de primer acceso -------------------
