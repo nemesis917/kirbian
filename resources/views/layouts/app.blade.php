@@ -21,6 +21,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style-layout.css') }}" rel="stylesheet">
 
+    
+
 
     @stack('styles-remking')
 </head>
@@ -49,6 +51,10 @@
                                 <li class="nav-item {{ Route::currentRouteNamed('sistema.usuario.index') ? 'active' : '' }} ">
                                     <a class="nav-link" href="{{ route('sistema.usuario.index') }}">Usuarios</a>
                                 </li>
+                                <li class="nav-item {{ Route::currentRouteNamed('sistema.catalogo.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('sistema.catalogo.index') }}">Catalogo</a>
+                                </li>
+                            @elseif(Auth::User()->level=='administrador' || Auth::User()->level=='moderador')
                                 <li class="nav-item {{ Route::currentRouteNamed('sistema.catalogo.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('sistema.catalogo.index') }}">Catalogo</a>
                                 </li>
@@ -98,6 +104,7 @@
         </main>
     </div>
     <script src="{{ asset('plugins/jquery/jquery.js') }}" ></script>
+    <link href="{{ asset('plugins/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     @stack('script-remking')
     @stack('script-catalogo-remking')
 </body>
