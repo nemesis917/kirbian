@@ -35,7 +35,7 @@ class jeroglificoController extends Controller
             'imagen2' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
             'imagen3' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
             'gardiner' => 'required|max:12',
-            'transliteracion' => 'required|max:30',
+            'transliteracion' => 'required|max:200',
             'seleccion' => 'required',
             'sentido' => 'required|max:1200',
             'comentario' => 'max:1200',
@@ -166,11 +166,11 @@ class jeroglificoController extends Controller
             'imagen1' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
             'imagen2' => 'file|image|mimes:png,jpg,jpeg,gif,svg,webp|max:5000',
             'gandiner' => 'required|max:12',
-            'transliteracion' => 'required|max:30',
+            'transliteracion' => 'required|max:200',
             'significado' => 'required|max:1300',
-            'comentario' => 'required|max:1300',
-            'descripcion' => 'required|max:1300'
-            ]);
+            'comentario' => 'max:1300',
+            'descripcion' => 'max:1300'
+        ]);
 
 
         $vw_jero = $datos = DB::table('vw_ver_jeroglifico')->where('id', $request->id)->first();
@@ -184,7 +184,6 @@ class jeroglificoController extends Controller
         $jero->catalogo_id = $request->seleccion;
         $jero->comentario = $request->comentario;
 
-        
         $update = $jero->update();
 
         if (!empty($request->descripcion)) {

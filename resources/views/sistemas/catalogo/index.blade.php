@@ -4,13 +4,7 @@
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <style>
 /* Probable linea de idioma especial */
-@font-face {
-  font-family: "Glyphtrl";
-  src: url(prugins/fonts/TransliterationItalic.eot?0f5047769e37bc36243d234325986309);
-  /* IE9 Compat Modes */
-  src: url(prugins/fonts/TransliterationItalic.eot?0f5047769e37bc36243d234325986309) format("embedded-opentype"), url(/fonts/TransliterationItalic.woff2?4bf28bc4497ddfb13a83cd289ec4a2ad) format("woff2"), url(/fonts/TransliterationItalic.woff?5378b697f46e2ebe2a89d6663736d76e) format("woff"), url(/fonts/GLYPHTRL.ttf?d1b4dad5d323a9a0b7a4722af10ddec1) format("truetype"), url(/fonts/TransliterationItalic.svg?fd0fc736c474ef6623001ff12b43067a) format("svg");
-  /* Legacy iOS */
-}
+
 </style>
 @endpush
 @section('content')
@@ -39,17 +33,7 @@
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <a href="{{ route('sistema.jeroflifico.mostrarF') }}">
-                            <button type="button" class="btn btn-success">
-                                Fuentes paleográficas
-                            </button>
-                        </a>
-                    </td>
-                </tr>
             </table>
-
             
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,8 +69,9 @@
                                 <input type="text" name="comentario" id="comentario" class="form-control" maxlength="1200">
                             </div>
                             <div class="form-group">
-                                <label for="gandiner">Selecciona un Gandiner (*)</label>
-                                <select  name="seleccion" id="seleccion" class="custom-select" required>
+                                <label for="gandiner">Selecciona una opción del catálogo
+                                     (*)</label>
+                                <select  name="seleccion" id="cat" class="custom-select" required>
                                     <option value="">Seleccione...</option>
                                     @foreach ($catalogo as $cat)
                                     <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>

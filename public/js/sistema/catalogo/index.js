@@ -295,6 +295,9 @@ $(document).ready(function(){
 
     });
 
+
+
+
     $("#guardarDatos").click(function(){
 
         if ($('#gardiner').val() == "") {
@@ -312,8 +315,8 @@ $(document).ready(function(){
             return false;
         }
 
-        if ($('#seleccion').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
+        if($('#cat').val() == ""){
+            alert('el campo de seleccion no puede estar vacio');
             return false;
         }
 
@@ -342,8 +345,8 @@ $(document).ready(function(){
             return false;
         }
 
-        if ($('#seleccion1').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
+        if($('#seleccion1').val() == ""){
+            alert('el campo de seleccion no puede estar vacio');
             return false;
         }
 
@@ -390,7 +393,7 @@ function templateCatalogo(catalogoItem){
             <img src="../${ruta_imagen}" class="img-fluid size-img-catalogo" alt="Imagenes de Catalogo - ${gandiner}">
             <div class="card-body">
                 <p class="card-text">Gandiner: <h3><b>${gandiner}</b></h3></p>
-                <p class="card-text">Transliteracion: ${transliteracion}</p>
+                <p class="card-text">Transliteracion: <br><div class="transliteration">${transliteracion}</div></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar un jeroglífico" data-toggle="modal" id="ver" data-target="#consultar">
