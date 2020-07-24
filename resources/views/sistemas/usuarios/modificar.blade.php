@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="correo">Indique el correo</label>
-                <input type="text" class="form-control" name="correo" id="correo" value="{{ $usuarios->email }}" placeholder="Ingrese su correo">
+                <input type="text" class="form-control" name="correo" id="correo" value="{{ $usuarios->email }}" placeholder="Ingrese su correo" disabled>
             </div>
             <div class="form-group">
                 <label for="correo">Seleccione el tipo de nivel de acceso</label>
@@ -28,6 +28,7 @@
                     <option selected>Seleccione...</option>
                     <option value="administrador" {!! ($usuarios->level == "administrador") ? "selected" : ""; !!}>Administrador</option>
                     <option value="moderador" {!! ($usuarios->level == "moderador") ? "selected" : ""; !!}>Moderador</option>
+                    <option value="usuario" {!! ($usuarios->level == "usuario") ? "selected" : ""; !!}>Usuario</option>
                 </select>
             </div> 
 

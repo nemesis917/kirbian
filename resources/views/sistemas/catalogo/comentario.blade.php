@@ -23,10 +23,10 @@
                     <td>Gandiner: </td><td>{{ $jero->gandiner }}</td>
                 </tr>
                 <tr>
-                    <td>Transliteración: </td><td>{{ $jero->transliteracion }}</td>
+                    <td>Transliteración: </td><td><div class="transliteration"> {{ $jero->transliteracion }}</div></td>
                 </tr>
                 <tr>
-                    <td>Significado: </td><td>{{ $jero->significado }}</td>
+                    <td>Significado: </td><td><div class="prueba">{{ $jero->significado }}</div></td>
                 </tr>
                 <tr>
                     <td>Descripción: </td><td>{{ $jero->descripcion }}</td>

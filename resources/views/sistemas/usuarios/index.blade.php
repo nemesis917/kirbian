@@ -5,15 +5,12 @@
 @section('content')
 <div class="container">
 
-    aqui inicia todo
-    <p>
-        Aqui comienza el agregar a un usuario y muestra los usuarios ya creados
-    </p>
-    <button class="btn btn-primary" id="agregar"  data-toggle="modal" data-target="#exampleModal">Agregar a un cristiano</button>
+
+    <button class="btn btn-primary" id="agregar"  data-toggle="modal" data-target="#exampleModal">Agregar a un usuario</button>
 
 
     <p>
-        <h2><center>Listado rudimentario de usuarios del sistema</center></h2>
+        <h2><center>Listado de usuarios del sistema</center></h2>
 
         <table class="table">
             <thead>
@@ -105,6 +102,7 @@
                             <option selected>Seleccione...</option>
                             <option value="administrador">Administrador</option>
                             <option value="moderador">Moderador</option>
+                            <option value="usuario">Usuario</option>
                         </select>
                     </div> 
 

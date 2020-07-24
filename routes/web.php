@@ -11,16 +11,13 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::get('/', 'webPageController@index')->name('web.inicio');
 
 
 Auth::routes();
 
-Route::group(['prefix' => 'sistema/usuario/', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'sistema/usuario/', 'middleware' => ['auth', 'validacion', 'adm']], function () {
     Route::get('/', 'usersController@index')->name('sistema.usuario.index');
     Route::post('guardar','usersController@store')->name('sistema.usuario.store');
     Route::get('modificar/sdy8vh4n{id}dvd89vgbd3vd6r5tfv4', 'usersController@edit')->name('sistema.usuario.edit');
@@ -29,12 +26,12 @@ Route::group(['prefix' => 'sistema/usuario/', 'middleware' => 'auth'], function 
     Route::post('cambiar-clave', 'usersController@jq_clave');
 });
 
-Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => ['auth', 'validacion']], function () {
     Route::get('/', 'catalogoController@index')->name('sistema.catalogo.index');
     Route::post('valorGardiner','catalogoController@jq_gardiner');
 });
 
-Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => ['auth', 'validacion']], function () {
     Route::post('guardar-cambios','jeroglificoController@store')->name('sistema.jeroglifico.store');
     Route::post('modificar','jeroglificoController@edit')->name('sistema.jeroglifico.edit');
     Route::post('modificando','jeroglificoController@update')->name('sistema.jeroglifico.update');
@@ -49,7 +46,7 @@ Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => 'auth'], func
     Route::post('borrar-paleografica','jeroglificoController@jq_borrarFp');
 });
 
-Route::group(['prefix' => 'control',  'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'control',  'middleware' => ['auth', 'validacion']], function () {
     Route::get('/inicio', 'HomeController@index')->name('home');
 });
 

@@ -16,7 +16,7 @@ class Jeroglificos extends Migration
         Schema::create('jeroglificos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('gandiner', 12);
-            $table->string('transliteracion', 30);
+            $table->string('transliteracion', 200);
             $table->text('sentido', 1300);
             $table->string('nombre_usuario', 70);
             $table->text('comentario',1300)->nullable();

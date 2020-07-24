@@ -1,6 +1,17 @@
 @extends('layouts.app')
 @push('script-catalogo-remking')
 <script src="{{ asset('js/sistema/catalogo/index.js') }}"></script>
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<style>
+/* Probable linea de idioma especial */
+@font-face {
+  font-family: "Glyphtrl";
+  src: url(prugins/fonts/TransliterationItalic.eot?0f5047769e37bc36243d234325986309);
+  /* IE9 Compat Modes */
+  src: url(prugins/fonts/TransliterationItalic.eot?0f5047769e37bc36243d234325986309) format("embedded-opentype"), url(/fonts/TransliterationItalic.woff2?4bf28bc4497ddfb13a83cd289ec4a2ad) format("woff2"), url(/fonts/TransliterationItalic.woff?5378b697f46e2ebe2a89d6663736d76e) format("woff"), url(/fonts/GLYPHTRL.ttf?d1b4dad5d323a9a0b7a4722af10ddec1) format("truetype"), url(/fonts/TransliterationItalic.svg?fd0fc736c474ef6623001ff12b43067a) format("svg");
+  /* Legacy iOS */
+}
+</style>
 @endpush
 @section('content')
 <div class="container">
@@ -59,7 +70,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese la transliteración (*): </label>
-                                <input type="text" name="transliteracion" id="transliteracion" class="form-control" maxlength="30" required>
+                                <input type="text" name="transliteracion"  id="transliteracion" class="form-control transliteration" maxlength="30" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese el significado (*): </label>
@@ -143,7 +154,7 @@
                 <div class="col-md-8"><b>Transliteración: </b><div id="trasliteracion">Cargando...</div></div>
             </div><hr>
             <div class="row">
-                <div class="col-md-12"><b>Significado: </b><div id="significadoVer">Cargando...</div></div>
+                <div class="col-md-12"><b>Significado: </b><div id="significadoVer" class="transliteration">Cargando...</div></div>
             </div><hr>
             <div class="row">
                 <div class="col-md-12"><b>Descripción: </b><div id="descripcionVer">Cargando...</div></div>
@@ -179,7 +190,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese la transliteración: </label>
-                    <input type="text" name="transliteracion" id="transliteracion1" maxlength="30" class="form-control" required>
+                    <input type="text" name="transliteracion" id="transliteracion1" maxlength="30" class="form-control transliteration" required>
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese el significado: </label>

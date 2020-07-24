@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('sistema.usuario.index') }}"><button class="btn btn-primary">Usuarios</button></a>
-    <a href="{{ route('sistema.catalogo.index') }}"><button class="btn btn-success">Catálogo</button></a>
+
+    Bienvenido al sistema
+
+    <p>
+        <a href="#"><button class="btn btn-primary">Consulta de ususario a jeroglificos</button></a>
+    </p>
+
+
 </div>
 @endsection
