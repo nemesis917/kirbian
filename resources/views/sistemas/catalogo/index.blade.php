@@ -70,7 +70,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese la transliteración (*): </label>
-                                <input type="text" name="transliteracion"  id="transliteracion" class="form-control transliteration" maxlength="30" required>
+                                <input type="text" name="transliteracion"  id="transliteracion" class="form-control transliteration" maxlength="190" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Ingrese el significado (*): </label>
@@ -190,7 +190,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese la transliteración: </label>
-                    <input type="text" name="transliteracion" id="transliteracion1" maxlength="30" class="form-control transliteration" required>
+                    <input type="text" name="transliteracion" id="transliteracion1" maxlength="190" class="form-control transliteration" required>
                 </div>
                 <div class="form-group">
                     <label for="">Ingrese el significado: </label>

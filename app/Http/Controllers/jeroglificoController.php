@@ -398,13 +398,7 @@ class jeroglificoController extends Controller
             list($ancho, $alto, $tipo, $atributos) = getimagesize($image);
 
             //Redefinimos el tamaño y guardamos la imagen modificada en la carpeta segun la posicion de la imagen
-            if($ancho > $alto){
-                $file = Image::make($image)->resize(460, 340)->save($rutaImg . "/" . $imgName);
-            }elseif($ancho < $alto){
-                $file = Image::make($image)->resize(340, 460)->save($rutaImg . "/" . $imgName);
-            }elseif($ancho == $alto){
-                $file = Image::make($image)->resize(340, 340)->save($rutaImg . "/" . $imgName);
-            }
+            $file = Image::make($image)->resize(150, 150)->save($rutaImg . "/" . $imgName);
 
 
             return $rutaImg . "/" . $imgName;

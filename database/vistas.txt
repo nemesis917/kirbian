@@ -98,4 +98,7 @@ INSERT INTO `catalogo` (`id`, `nombres`, `slug`, `referencias`, `created_at`, `u
 INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'KMUMe4nWFezFv4xbCdEttRP3P2346ROqHFTe3GuC8zHtgyQI5Ls8DLbNk5hU', NULL, NULL);
 
+INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES (NULL, 'usuario', 'usuario', 'usuario@usuario', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'usuario', NULL, NULL, NULL);
+
+INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES (NULL, 'moderador', 'moderador', 'moderador@moderador', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'moderador', NULL, NULL, NULL);
 
