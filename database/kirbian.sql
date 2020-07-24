@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2020 a las 08:24:27
+-- Tiempo de generación: 25-07-2020 a las 00:54:22
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -116,12 +116,15 @@ CREATE TABLE `descripcion` (
 --
 
 INSERT INTO `descripcion` (`id`, `descripcion`, `jeroglifico_id`, `created_at`, `updated_at`) VALUES
-(1, 'Placenta (?)(variante de Y24(?)). Antiguamente interpretada como la placenta de un animal, más probablemente una especie de canasta (?). El cordón umbilical era cortado con un cuchillo especial después de la expulsión de la placenta, ambos tenían asociaciones mágicas y se creía que estaban investidos de un alter ego espiritual o doble de la criatura. La placenta a menudo era enterrada en la casa o arrojada al Nilo para asegurar la supervivencia del niño, mientras que el cordón se dejaba secar y se conservaba para acompañar al individuo incluso a la tumba. La madre mordía su propia placenta ya que le otorgaba un gran valor simbólico (1. Llagostera E. El secreto de la felicidad. Muy Especial. 1998;(33):77-79. 2. Strouhal E. La vida en el antiguo Egipto. 1ª edición. Barcelona: Editorial Folio; 1994.).', 1, '2020-07-24 09:49:05', '2020-07-24 09:49:05'),
+(1, 'Placenta (?)(variante de Y24(?)). Antiguamente interpretada como la placenta de un animal, más probablemente una especie de canasta (?). El cordón umbilical era cortado con un cuchillo especial después de la expulsión de la placenta, ambos tenían asociaciones mágicas y se creía que estaban investidos de un alter ego espiritual o doble de la criatura. La placenta a menudo era enterrada en la casa o arrojada al Nilo para asegurar la supervivencia del niño, mientras que el cordón se dejaba secar y se conservaba para acompañar al individuo incluso a la tumba. La madre mordía su propia placenta ya que le otorgaba un gran valor simbólico (1. Llagostera E. El secreto de la felicidad. Muy Especial. 1998;(33):77-79. 2. Strouhal E. La vida en el antiguo Egipto. 1ª edición. Barcelona: Editorial Folio; 1994.).', 1, '2020-07-24 09:49:05', '2020-07-25 00:32:01'),
 (2, 'Variante de Aa1. Similar con el signo Y24 (?), ortografía simplificada de muchos signos circulares (N5, N9, N10, O50, X06, Aa1)', 2, '2020-07-24 09:59:18', '2020-07-24 09:59:18'),
 (3, 'Sustituto de varios signos: arcilla(N32), paquete de producto(V32), vendaje, embalsamamiento, cubierta(V38), granito (rojo), Elefantina(W7), madera de coníferas de origen extranjero(W41)', 3, '2020-07-24 10:05:55', '2020-07-24 10:05:55'),
 (4, 'Pústula supurativa (variante Aa2).', 4, '2020-07-24 10:08:23', '2020-07-24 10:08:23'),
 (5, 'Pústula supurativa (variante de Aa2).', 5, '2020-07-24 10:11:00', '2020-07-24 10:11:00'),
-(6, 'Copa utilizada como lámpara (variante de W10a).', 6, '2020-07-24 10:13:07', '2020-07-24 10:13:07');
+(6, 'Copa utilizada como lámpara (variante de W10a).', 6, '2020-07-24 10:13:07', '2020-07-24 10:13:07'),
+(7, 'dfgdfgdf', 7, '2020-07-24 23:45:58', '2020-07-25 00:29:06'),
+(8, 'dgfdgdf', 8, '2020-07-25 00:31:47', '2020-07-25 01:09:59'),
+(9, 'ddd', 9, '2020-07-25 02:47:52', '2020-07-25 02:47:52');
 
 -- --------------------------------------------------------
 
@@ -189,7 +192,16 @@ INSERT INTO `imagenes_jeroglificos` (`id`, `ruta_imagen`, `referencia`, `jerogli
 (15, 'imagenes/catalogo/80/660-jero-80-172.png', '3', 5, '2020-07-24 10:11:00', '2020-07-24 10:11:00'),
 (16, 'imagenes/catalogo/80/464-jero-80-46.png', '1', 6, '2020-07-24 10:13:07', '2020-07-24 10:13:07'),
 (17, 'imagenes/catalogo/80/991-jero-80-425.png', '2', 6, '2020-07-24 10:13:07', '2020-07-24 10:13:07'),
-(18, 'system/no-foto.jpg', '3', 6, '2020-07-24 10:13:07', '2020-07-24 10:13:07');
+(18, 'system/no-foto.jpg', '3', 6, '2020-07-24 10:13:07', '2020-07-24 10:13:07'),
+(19, 'imagenes/catalogo/61/3-jero-61-236.png', '1', 7, '2020-07-24 23:45:58', '2020-07-24 23:45:58'),
+(20, 'system/no-foto.jpg', '2', 7, '2020-07-24 23:45:59', '2020-07-24 23:45:59'),
+(21, 'system/no-foto.jpg', '3', 7, '2020-07-24 23:45:59', '2020-07-24 23:45:59'),
+(22, 'imagenes/catalogo/55/267-jero-55-735.png', '1', 8, '2020-07-25 00:31:47', '2020-07-25 00:31:47'),
+(23, 'system/no-foto.jpg', '2', 8, '2020-07-25 00:31:47', '2020-07-25 00:31:47'),
+(24, 'system/no-foto.jpg', '3', 8, '2020-07-25 00:31:47', '2020-07-25 00:31:47'),
+(25, 'imagenes/catalogo/55/304-jero-55-581.jpg', '1', 9, '2020-07-25 02:47:53', '2020-07-25 02:47:53'),
+(26, 'system/no-foto.jpg', '2', 9, '2020-07-25 02:47:53', '2020-07-25 02:47:53'),
+(27, 'system/no-foto.jpg', '3', 9, '2020-07-25 02:47:53', '2020-07-25 02:47:53');
 
 -- --------------------------------------------------------
 
@@ -215,12 +227,15 @@ CREATE TABLE `jeroglificos` (
 --
 
 INSERT INTO `jeroglificos` (`id`, `gandiner`, `transliteracion`, `sentido`, `nombre_usuario`, `comentario`, `catalogo_id`, `visibilidad`, `created_at`, `updated_at`) VALUES
-(1, 'Aa1', 'x', '-', 'admin admin', NULL, 80, 1, '2020-07-24 09:49:05', '2020-07-24 09:49:05'),
+(1, 'Aa1', 'x', '-', 'admin admin', NULL, 80, 1, '2020-07-24 09:49:05', '2020-07-25 00:32:01'),
 (2, 'Aa1a', 'x', '-', 'admin admin', NULL, 80, 1, '2020-07-24 09:59:18', '2020-07-24 09:59:18'),
 (3, 'Aa2', 'Xpw / gA / Hsb', 'Enfermedad, estados del cuerpo, hinchado, olor, excremento, sucio, 1/4 ...', 'admin admin', NULL, 80, 1, '2020-07-24 10:05:55', '2020-07-24 10:05:55'),
 (4, 'Aa3', 'Hsb', 'Secreciones corporales, olor.', 'admin admin', NULL, 80, 1, '2020-07-24 10:08:23', '2020-07-24 10:08:23'),
 (5, 'Aa3', 'Hbs', 'Secreciones corporales, olor', 'admin admin', NULL, 80, 1, '2020-07-24 10:11:00', '2020-07-24 10:11:00'),
-(6, 'Aa4', 'iab / sxw / wsx / ab', '-', 'admin admin', NULL, 80, 1, '2020-07-24 10:13:07', '2020-07-24 10:13:07');
+(6, 'Aa4', 'iab / sxw / wsx / ab', '-', 'admin admin', NULL, 80, 1, '2020-07-24 10:13:07', '2020-07-24 10:13:07'),
+(7, 'dfdf', 'fdgdfdf', 'dffdg', 'admin admin', NULL, 61, 1, '2020-07-24 23:45:56', '2020-07-25 00:29:06'),
+(8, 'vxvcvxv', 'xvxvg', 'fdsfsd fsdf', 'admin admin', NULL, 55, 1, '2020-07-25 00:31:47', '2020-07-25 00:31:47'),
+(9, 'Y1', 'i', 'ddd', 'admin admin', 'ddd', 55, 1, '2020-07-25 02:47:52', '2020-07-25 02:47:52');
 
 -- --------------------------------------------------------
 
@@ -281,7 +296,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `email_verified_at`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'KMUMe4nWFezFv4xbCdEttRP3P2346ROqHFTe3GuC8zHtgyQI5Ls8DLbNk5hU', NULL, NULL),
+(1, 'admin', 'admin', 'admin@admin', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'administrador', 'BCN7Je03dzQXLfXOlKocMmrZwMYDokKaOulGJMiBlp0SpHqxKWLTp3CAPDGw', NULL, NULL),
 (2, 'usuario', 'usuario', 'usuario@usuario', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'usuario', NULL, NULL, NULL),
 (3, 'moderador', 'moderador', 'moderador@moderador', NULL, '$2y$10$g6QnZiMvovrwIq.g7w6LQ.nzEQohdita3Qhk5u5KmVUGd8dMWAgsy', 'moderador', NULL, NULL, NULL);
 
@@ -469,7 +484,7 @@ ALTER TABLE `comentarios_jero`
 -- AUTO_INCREMENT de la tabla `descripcion`
 --
 ALTER TABLE `descripcion`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes_comentario_jero`
@@ -481,13 +496,13 @@ ALTER TABLE `imagenes_comentario_jero`
 -- AUTO_INCREMENT de la tabla `imagenes_jeroglificos`
 --
 ALTER TABLE `imagenes_jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `jeroglificos`
 --
 ALTER TABLE `jeroglificos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
