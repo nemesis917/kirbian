@@ -298,7 +298,7 @@ $(document).ready(function(){
 
 
 
-    $("#guardarDatos").click(function(){
+    $(document).on('click', "#guardarDatos", function(){
 
         if ($('#gardiner').val() == "") {
             alert("Hay un campo obligatorio que no tiene información");
