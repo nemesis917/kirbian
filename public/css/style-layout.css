@@ -19,3 +19,6 @@
     font-family: "Glyphtrl", Fallback, sans-serif;
     font-size: 1rem;
   }
+  .img-fluid.size-img-catalogo{
+    padding:80px
+  }

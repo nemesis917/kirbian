@@ -1,3 +1,5 @@
+console.log("catalogo activo")
+
 $(document).ready(function(){
 
     $("#invisible").hide();
@@ -297,38 +299,7 @@ $(document).ready(function(){
 
 
 
-
-    $("#guardarDatos").click(function(){
-
-        if ($('#gardiner').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }
-
-        if ($('#transliteracion').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }
-
-        if ($('#sentido').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }
-
-        if($('#cat').val() == ""){
-            alert('el campo de seleccion no puede estar vacio');
-            return false;
-        }
-
-        if ($('#imagen1').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }      
-
-        $('#guardarDatos').attr('disabled', true);
-        $('#guardarDatos').attr('value', 'Guardando...');
-    });
-
+   
     $('#modificarDatos').click(function(){
         if ($('#gardiner1').val() == "") {
             alert("Hay un campo obligatorio que no tiene información");
@@ -354,19 +325,6 @@ $(document).ready(function(){
         $('#guardarDatos').attr('disabled', true);
         $('#guardarDatos').attr('value', 'Cambiando...');
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 
