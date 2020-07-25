@@ -1,115 +1,78 @@
 @extends('layouts.app')
 @push('script-catalogo-remking')
-<script src="{{ asset('js/sistema/catalogo/index.js') }}"></script>
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<style>
-/* Probable linea de idioma especial */
+    <script src="{{ asset('js/sistema/catalogo/index.js') }}"></script>
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <style>
+    /* Probable linea de idioma especial */
 
-</style>
+    </style>
 @endpush
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-            <div class="form-group">
-                <label for="gardiner"><h4>Selecciona un Gandiner</h4></label>
-                <select  id="seleccion" class="custom-select">
-                    <option>Seleccione...</option>
-                    @foreach ($catalogo as $cat)
-                    <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
-                    @endforeach
-                </select>
-                <br>
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Jeroglífico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             </div>
-            <p>
-
-            <!-- Button trigger modal -->
-
-            <table>
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Cargar un catálogo
-                        </button>
-                    </td>
-                </tr>
-            </table>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar Jeroglífico</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <form action="{{ route('sistema.jeroglifico.store') }}" method="post" enctype= "multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Ingrese el Gandiner (*): </label>
+                        <input type="text" name="gardiner" id="gardiner" class="form-control" maxlength="12" required>
                     </div>
-                    <form action="{{ route('sistema.jeroglifico.store') }}" method="post" enctype= "multipart/form-data">
-                        @csrf
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="">Ingrese el Gandiner (*): </label>
-                                <input type="text" name="gardiner" id="gardiner" class="form-control" maxlength="12" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ingrese la transliteración (*): </label>
-                                <input type="text" name="transliteracion"  id="transliteracion" class="form-control transliteration" maxlength="190" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ingrese el significado (*): </label>
-                                <input type="text" name="sentido" id="sentido" class="form-control" maxlength="1200" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ingrese su descripción: </label>
-                                <textarea name="descripcion" id="descripcion" class="form-control" maxlength="1200"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Ingrese su comentario: </label>
-                                <input type="text" name="comentario" id="comentario" class="form-control" maxlength="1200">
-                            </div>
-                            <div class="form-group">
-                                <label for="gandiner">Selecciona una opción del catálogo
-                                     (*)</label>
-                                <select  name="seleccion" id="cat" class="custom-select" required>
-                                    <option value="">Seleccione...</option>
-                                    @foreach ($catalogo as $cat)
-                                    <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
-                                    @endforeach
-                                </select>
-                                <br>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Agregue la imagen principal (*) (Jeroglífico)</label>
-                                <input type="file" name="imagen1" id="imagen1" class="form-control" required accept="image/*">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Agregue la 2da imagen  (Cursivo)</label>
-                                <input type="file" name="imagen2" id="imagen2" class="form-control" accept="image/*">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Agregue la 3ra principal (Hierático)</label>
-                                <input type="file" name="imagen3" id="imagen3" class="form-control" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <input type="submit" class="btn btn-primary" id="guardarDatos" value="Guardar datos">
-                        </div>
-                    </form>
+                    <div class="form-group">
+                        <label for="">Ingrese la transliteración (*): </label>
+                        <input type="text" name="transliteracion"  id="transliteracion" class="form-control transliteration" maxlength="190" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ingrese el significado (*): </label>
+                        <input type="text" name="sentido" id="sentido" class="form-control" maxlength="1200" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ingrese su descripción: </label>
+                        <textarea name="descripcion" id="descripcion" class="form-control" maxlength="1200"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ingrese su comentario: </label>
+                        <input type="text" name="comentario" id="comentario" class="form-control" maxlength="1200">
+                    </div>
+                    <div class="form-group">
+                        <label for="gandiner">Selecciona una opción del catálogo
+                                (*)</label>
+                        <select  name="seleccion" id="cat" class="custom-select" required>
+                            <option value="">Seleccione...</option>
+                            @foreach ($catalogo as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
+                            @endforeach
+                        </select>
+                        <br>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Agregue la imagen principal (*) (Jeroglífico)</label>
+                        <input type="file" name="imagen1" id="imagen1" class="form-control" required accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Agregue la 2da imagen  (Cursivo)</label>
+                        <input type="file" name="imagen2" id="imagen2" class="form-control" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Agregue la 3ra principal (Hierático)</label>
+                        <input type="file" name="imagen3" id="imagen3" class="form-control" accept="image/*">
+                    </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <input type="submit" class="btn btn-primary" id="guardarDatos" value="Guardar datos">
                 </div>
-            </div>
-            </p>
-        </div>
-        <div class="col-9">
-            <div id="guia" class="row">
-                <div id="msj"></div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="consultar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -154,9 +117,6 @@
       </div>
     </div>
 </div>
-
-
-
 <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -255,6 +215,22 @@
     </div>
     </div>
 </div>
+<div class="container box-catalogo">
+    <div class="form-group">
+        <label for="gardiner"><h4>Selecciona un Gandiner</h4></label>
+        <select  id="seleccion" class="custom-select">
+            <option>Seleccione...</option>
+            @foreach ($catalogo as $cat)
+            <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
+            @endforeach
+        </select>
+    </div>  
+    <hr>
+    <div id="guia" class="row">
+        <div id="msj"></div>
+    </div>
+</div>
+
 
 @if (session('message'))
     <script>alert("Se ha realizado la solicitud de manera correcta")</script>

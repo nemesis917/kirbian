@@ -1,3 +1,6 @@
+body{
+  background-color: black;
+}
 .bg-white {
     background-color: #E8D636!important;
 }
@@ -19,6 +22,124 @@
     font-family: "Glyphtrl", Fallback, sans-serif;
     font-size: 1rem;
   }
-  .img-fluid.size-img-catalogo{
-    padding:80px
+
+  @media (min-width: 900px){
+    .box-user  #agregar{
+        float: right;
+    }
+    .box-user .table-responsive {
+      padding: 23px;
+    }
+    .box-catalogo #seleccion{
+      width: 400px;
+      text-align: center;
+      margin: 0 auto;
+    
+    }
+    .img-fluid.size-img-catalogo {
+      object-fit: contain;
+      padding: 20px;
+    }
+    .box-hieroglyphics {
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    .box-hieroglyphics img {
+      flex-basis: 200px;
+      max-width: 120px;
   }
+  .box-comments{
+    padding:20px;
+    border-radius:25px;
+  }
+}
+
+@media (max-width: 900px){
+  .img-fluid.size-img-catalogo {
+    object-fit: contain;
+  }
+  .box-user  #agregar{
+      display:block;
+      width: 100%;
+  }
+  .box-hieroglyphics{
+    flex-direction: column;
+  }
+  .box-hieroglyphics img{
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+ 
+}
+
+.box-user > h2{
+  color:yellow
+}
+.box-user .table-responsive{
+    background-color: #968f54;
+    border-radius:10px;
+    background: linear-gradient(154deg, rgb(189 178 75) 0%,rgb(195 185 95) 50%,rgb(217 247 98) 51%,rgb(162 150 38) 100%);
+}
+.box-user .table-responsive table{
+  background-color: #0000002b;
+}
+.box-user  #agregar{
+  background: linear-gradient(135deg, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%);
+  border-color:gray;
+}
+
+.box-catalogo hr{
+    border-top: 1px solid rgb(232 214 54);
+}
+.box-catalogo #seleccion{background: rgb(254,204,177);background: linear-gradient(135deg,  rgb(253 245 174) 0%,rgb(255 232 27) 50%,rgb(226 203 0) 51%,rgb(255 241 119) 100%);border: gold;font-weight: bold;}
+
+.box-catalogo .card{
+  background-color: #fff;
+  background: rgb(242,246,248); /* Old browsers */
+  background: linear-gradient(135deg, rgb(247 223 8) 0%,rgb(204 185 16) 50%,rgb(236 224 116) 51%,rgb(243 226 109) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=1 );
+  box-shadow: inset 14px -6px 148px 5px rgba(0,0,0,0.55) !important;
+
+}
+.box-catalogo .card .card-body{
+  background-color: #a0a0a0ab;
+}
+
+.box-catalogo .box-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-catalogo .box-flex .gandiner-title{
+  font-weight: bold;
+}
+.box-catalogo .box-flex .gandiner-value{
+  font-size: 18px;
+}
+
+.box-catalogo  .btn-group-catalogo{
+  justify-content: flex-end;
+}
+
+.box-catalogo  .btn-group-catalogo .btn{
+  background: linear-gradient(135deg, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(0,0,0,1) 51%,rgba(17,17,17,1) 60%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(19,19,19,1) 100%);
+  border-color: gray;
+  color: white;
+}
+.box-hieroglyphics{
+  display:flex;
+}
+.box-comments{
+  background-color: #e8d636;
+  background: linear-gradient(135deg,  rgb(244 236 166) 0%,rgb(129 118 19) 50%,rgb(108 97 2) 51%,rgb(186 177 93) 100%); 
+}
+
+
+#listado #footer{
+  color: white;
+  float: left;
+}
+#fp {
+  color:white;
+}

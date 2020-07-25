@@ -299,42 +299,7 @@ $(document).ready(function(){
 
 
 
-<<<<<<< HEAD
    
-=======
-
-    $(document).on('click', "#guardarDatos", function(){
-
-        if ($('#gardiner').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }
-
-        if ($('#transliteracion').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }
-
-        if ($('#sentido').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }
-
-        if($('#cat').val() == ""){
-            alert('el campo de seleccion no puede estar vacio');
-            return false;
-        }
-
-        if ($('#imagen1').val() == "") {
-            alert("Hay un campo obligatorio que no tiene información");
-            return false;
-        }      
-
-        $('#guardarDatos').attr('disabled', true);
-        $('#guardarDatos').attr('value', 'Guardando...');
-    });
-
->>>>>>> 93614613a82751c98076f1aa5be27e1639f60025
     $('#modificarDatos').click(function(){
         if ($('#gardiner1').val() == "") {
             alert("Hay un campo obligatorio que no tiene información");
@@ -355,17 +320,11 @@ $(document).ready(function(){
             alert('el campo de seleccion no puede estar vacio');
             return false;
         }
-
-
         $('#guardarDatos').attr('disabled', true);
         $('#guardarDatos').attr('value', 'Cambiando...');
     });
 
 });
-
-
-
-
 
 function templateCatalogo(catalogoItem){
     /*
@@ -385,9 +344,15 @@ function templateCatalogo(catalogoItem){
         <div class="card mb-4 shadow-sm">
             <img src="../${ruta_imagen}" class="img-fluid size-img-catalogo" alt="Imagenes de Catalogo - ${gandiner}">
             <div class="card-body">
-                <p class="card-text">Gandiner: <h3><b>${gandiner}</b></h3></p>
-                <p class="card-text">Transliteracion: <div class="transliteration">${transliteracion}</div></p>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="box-flex">   
+                    <div class="gandiner-title">Gandiner:</div>
+                    <div class="gandiner-value">${gandiner}</div>
+                </div>
+                <div class="box-flex">   
+                    <div class="gandiner-title">Transliteracion:</div>
+                    <div class="gandiner-value">${transliteracion}</div>
+                </div>
+                <div class="d-flex btn-group-catalogo">
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar un jeroglífico" data-toggle="modal" id="ver" data-target="#consultar">
                             <i class="fa fa-sticky-note" aria-hidden="true"></i>

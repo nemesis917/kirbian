@@ -1,0 +1,25 @@
+#mainNav{
+    background-color: black;
+}
+.intro-text{
+    background-color: #00000052;
+}
+header {
+    background-image: url('https://previews.123rf.com/images/tatyana/tatyana1805/tatyana180500004/101171120-ancient-egypt-banner-egyptian-hieroglyph-and-symbol-murals-with-ancient-egypt-scene-.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+@media (min-width: 768px){
+    header .intro-text .intro-heading {
+        font-size: 52px;
+        padding: 0 85px;
+    }
+}
