@@ -42,8 +42,7 @@
                         <input type="text" name="comentario" id="comentario" class="form-control" maxlength="1200">
                     </div>
                     <div class="form-group">
-                        <label for="gandiner">Selecciona una opción del catálogo
-                                (*)</label>
+                        <label for="gandiner">Selecciona una opción del catálogo (*)</label>
                         <select  name="seleccion" id="cat" class="custom-select" required>
                             <option value="">Seleccione...</option>
                             @foreach ($catalogo as $cat)

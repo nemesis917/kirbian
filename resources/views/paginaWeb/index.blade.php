@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>Kirbian</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('web/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -146,7 +147,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <select name="gardiner" class="form-control" id="gardiner">
+                        <select  name="seleccion" id="seleccion" class="form-control">
                             <option>Seleccione...</option>
                             @foreach ($catalogo as $cat)
                             <option value="{{ $cat->id }}">{{ $cat->nombres }}</option>
@@ -155,7 +156,7 @@
                     </div>
                 </div>
                 <div class="col-md-9" style="height: 400px;">
-
+                    <div id="guia"></div>
                     
 
                 </div>
@@ -420,6 +421,7 @@
 
     <!-- jQuery -->
     <script src="{{ asset('web/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/js.kirbian.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('web/vendor/bootstrap/js/bootstrap.min.js') }}"></script>

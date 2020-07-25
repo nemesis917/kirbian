@@ -11,9 +11,12 @@
 |
 */
 
-
+// rutas de la web //
 Route::get('/', 'webPageController@index')->name('web.inicio');
+Route::post('catalogo-general','webPageController@jq_webCatalogo');
 
+
+// Fin de la ruta de la web //
 
 Auth::routes();
 

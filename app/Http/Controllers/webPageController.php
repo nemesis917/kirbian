@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Jeroglifico;
 use App\Descripcion;
+use App\Imagen_jeroglifico;
+use App\Comentario_jero;
+use App\Imagen_comentario_jero;
 use App\Catalogo;
 use Image;
 
@@ -16,20 +20,15 @@ class webPageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $catalogo = Catalogo::select('id', 'nombres')->get();
         return view('paginaWeb.index')->with('catalogo', $catalogo);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function jq_webCatalogo(Request $request){
+        $datos = DB::table('vw_catalogo_jeroglifico')->where('catalogo_id', $request->id)->where('visibilidad', 1)->get();
+        return response()->json($datos);
     }
 
     /**
