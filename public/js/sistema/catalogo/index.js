@@ -299,7 +299,42 @@ $(document).ready(function(){
 
 
 
+<<<<<<< HEAD
    
+=======
+
+    $(document).on('click', "#guardarDatos", function(){
+
+        if ($('#gardiner').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#transliteracion').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if ($('#sentido').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }
+
+        if($('#cat').val() == ""){
+            alert('el campo de seleccion no puede estar vacio');
+            return false;
+        }
+
+        if ($('#imagen1').val() == "") {
+            alert("Hay un campo obligatorio que no tiene información");
+            return false;
+        }      
+
+        $('#guardarDatos').attr('disabled', true);
+        $('#guardarDatos').attr('value', 'Guardando...');
+    });
+
+>>>>>>> 93614613a82751c98076f1aa5be27e1639f60025
     $('#modificarDatos').click(function(){
         if ($('#gardiner1').val() == "") {
             alert("Hay un campo obligatorio que no tiene información");
