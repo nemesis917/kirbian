@@ -62,7 +62,7 @@ class jeroglificoController extends Controller
             $jero->descripciones()->create(['descripcion' => $request->descripcion]);
         }
 
-        //Si se ha ingresado la primera imagen
+        //Si existe la primera imagen
         if ($request->file('imagen1')) {
 
             //Anexamos el id para la carpeta
@@ -283,8 +283,76 @@ class jeroglificoController extends Controller
         $coment = DB::table('vw_ver_comentarios')->where('jeroglificos_id', $id)->orderBy('id', 'DESC')->get();
         $fuentes = DB::table('vw_ver_img_paleografica')->where('jeroglificos_id', $jero->id)->orderBy('id', 'DESC')->get();
 
-        return view('sistemas.catalogo.comentario')->with('jero', $jero)->with('imagen', $img)->with('coment', $coment)->with('fuentes', $fuentes);
+        return view('sistemas.catalogo.comentario')->with('jero', $jero)->with('imagen', $img)->with('coment', $coment)->with(['fuentes' => $fuentes, 'id' => $id]);
     }
+
+    public function subirComentario(Request $request, $id)
+    {
+        $comm = new Comentario_jero;
+        $comm->comentario = $request->subirComentario;
+        $comm->puntuacion = 0;
+        $comm->visibilidad = 0;
+        $comm->jeroglificos_id = $id;
+        $comm->users_id = \Auth::user()->id;
+
+        $valida = $comm->save();
+        if($valida){
+            return redirect()->route('sistema.jeroglifico.comentario', $id)->with('message', "solicitud procesada");
+        } else {
+            return redirect()->route('sistema.jeroglifico.comentario', $id)->with('error', "Hubo un error");
+        }
+        
+    }
+
+    //Subir fuentes paleograficas
+    public function subirFp(Request $request, $id)
+    {
+        $contador = sizeof($request->subirImagenes);
+
+        if ( $contador > 5 ) {
+            return redirect()->back()->withInput();
+        }
+
+        if ( $contador < 1) {
+            return redirect()->back()->withInput();
+        }
+
+        for ($i=0; $i < $contador; $i++) { 
+                $image = $request->subirImagenes[$i];
+                //tomamos la extension de la imagen y nos aseguramos que es permitida
+                $extension = $image->getClientOriginalExtension();
+                //creamos un nombre
+                $imgName = rand(1,999)."-coment-fp-".$id."-".rand(1,999).".".$extension;
+            if ($extension == "png" || $extension == "jpg") {
+                //creamos la ruta;
+                $rutaImg = 'imagenes/comentario/' . $id;
+                //Si no existe la carpeta, la crea
+                if (!file_exists($rutaImg)) {
+                    mkdir($rutaImg, 0644, true);
+                }
+                
+                //Estoy metiendo en un listado las caracteristicas de la imagen (Alto y ancho)
+                list($ancho, $alto, $tipo, $atributos) = getimagesize($image);
+
+                //Redefinimos el tamaño y guardamos la imagen modificada en la carpeta segun la posicion de la imagen
+                $file = Image::make($image)->resize(100, 100)->save($rutaImg . "/" . $imgName);
+                $nombreRuta = $rutaImg . "/" . $imgName;
+
+                $imgCom = new Imagen_comentario_jero;
+                $imgCom->ruta_img_jero = $nombreRuta;
+                $imgCom->visibilidad = 0;
+                $imgCom->jeroglificos_id = $id;
+                $imgCom->users_id = \Auth::user()->id;
+                
+                $valida = $imgCom->save();
+
+            } else {
+                dd("Este tipo de archivo no esta permitido");
+            }
+        }
+        return redirect()->back()->with('message', "solicitud procesada");
+    }
+
 
     public function jq_anularFoto(Request $request)
     {

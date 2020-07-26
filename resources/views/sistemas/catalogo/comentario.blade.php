@@ -136,23 +136,31 @@
 <!-- comentario -->
 <div class="modal fade" id="cargarComentario" tabindex="-1" role="dialog" aria-labelledby="cargarComentarioLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+        <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="cargarComentarioLabel">Indique su comentario</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form action="{{ route('sistema.comentario.crearComentario', $id) }}" method="post">
+        @csrf
         <div class="modal-body">
-          ...
+            <div class="form-group">
+                <label>Ingrese su comentario</label>
+                <textarea name="subirComentario" class="form-control" id="subirComentario" placeholder="máximo, 1200 caracteres"></textarea>
+            </div>
+        
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <input type="submit" class="btn btn-primary" value="Guardar comentario">
+            </div>
+
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Guardar comentario</button>
+        </form>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <!-- Fuente paleografica -->
 <div class="modal fade" id="cargarFp" tabindex="-1" role="dialog" aria-labelledby="cargarFpLabel" aria-hidden="true">
@@ -164,21 +172,32 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form action="{{ route('sistema.comentario.subirFp', $id) }}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="modal-body">
-            <form action="" method="post" enctype="multipart/formdata"></form>
-            @csrf
             <div class="form-group">
                 <label>Máximo, 5 imágenes</label>
-                <input type="file" name="subirImagenes[]" class="form-control" id="subirImagenes" multiple>
+                <input type="file" name="subirImagenes[]" class="form-control" id="subirImagenes" required multiple  accept="image/*">
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">cargar imagenes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <input type="submit" value="cargar imagenes" class="btn btn-primary">
         </div>
+        </form>
       </div>
     </div>
   </div>
+@if (session('message'))
+  <script>alert("Se ha realizado la solicitud de manera correcta")</script>
+@endif
 
+@if ($errors->any())
+  <script>
+      alert("Hubo un error en el sistema.");
+  </script>
+@endif
 @endsection
+
+
 

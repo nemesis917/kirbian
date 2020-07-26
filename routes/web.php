@@ -20,7 +20,7 @@ Route::post('catalogo-general','webPageController@jq_webCatalogo');
 
 Auth::routes();
 
-Route::group(['prefix' => 'sistema/usuario/', 'middleware' => ['auth', 'validacion', 'adm']], function () {
+Route::group(['prefix' => 'sistema/usuario/', 'middleware' => ['auth', 'adm']], function () {
     Route::get('/', 'usersController@index')->name('sistema.usuario.index');
     Route::post('guardar','usersController@store')->name('sistema.usuario.store');
     Route::get('modificar/sdy8vh4n{id}dvd89vgbd3vd6r5tfv4', 'usersController@edit')->name('sistema.usuario.edit');
@@ -29,12 +29,12 @@ Route::group(['prefix' => 'sistema/usuario/', 'middleware' => ['auth', 'validaci
     Route::post('cambiar-clave', 'usersController@jq_clave');
 });
 
-Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => ['auth', 'validacion']], function () {
+Route::group(['prefix' => 'sistema/catalogo/',  'middleware' => ['auth']], function () {
     Route::get('/', 'catalogoController@index')->name('sistema.catalogo.index');
     Route::post('valorGardiner','catalogoController@jq_gardiner');
 });
 
-Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => ['auth', 'validacion']], function () {
+Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => ['auth']], function () {
     Route::post('guardar-cambios','jeroglificoController@store')->name('sistema.jeroglifico.store');
     Route::post('modificar','jeroglificoController@edit')->name('sistema.jeroglifico.edit');
     Route::post('modificando','jeroglificoController@update')->name('sistema.jeroglifico.update');
@@ -47,6 +47,8 @@ Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => ['auth', 'val
     Route::post('eliminar-comentario','jeroglificoController@jq_eliminarComentario');
     Route::post('cambiar-paleografica','jeroglificoController@jq_cambiarFp');
     Route::post('borrar-paleografica','jeroglificoController@jq_borrarFp');
+    Route::post('cargar-comentario/sdiofsdf80s{id}df','jeroglificoController@subirComentario')->name('sistema.comentario.crearComentario');
+    Route::post('subir-fuente-p/sdio3fsd{id}f80sdf','jeroglificoController@subirFp')->name('sistema.comentario.subirFp');
 });
 
 Route::group(['prefix' => 'control',  'middleware' => ['auth', 'validacion']], function () {
