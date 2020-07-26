@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <div class="box-user">
-        <h2><center>Listado de usuarios del sistema</center></h2>
+        <h2><center>Listado de usuarios y suscripciones</center></h2>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>

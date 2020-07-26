@@ -9,6 +9,7 @@
 @endpush
 @section('content')
  <!-- Modal -->
+
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -42,7 +43,8 @@
                         <input type="text" name="comentario" id="comentario" class="form-control" maxlength="1200">
                     </div>
                     <div class="form-group">
-                        <label for="gandiner">Selecciona una opción del catálogo (*)</label>
+                        <label for="gandiner">Selecciona una opción del catálogo
+                                (*)</label>
                         <select  name="seleccion" id="cat" class="custom-select" required>
                             <option value="">Seleccione...</option>
                             @foreach ($catalogo as $cat)
@@ -222,7 +224,7 @@
             @foreach ($catalogo as $cat)
             <option value="{{ $cat->id }}">{{ $cat->nombres  }}</option>
             @endforeach
-        </select>
+        </select><button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">+</button>
     </div>  
     <hr>
     <div id="guia" class="row">

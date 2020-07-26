@@ -45,8 +45,34 @@
                             <td>Comentario: </td><td>{{ $jero->comentario }}</td>
                         </tr>
                     </table>
+
+                    @if(\Auth::user())
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6"><button data-toggle="modal" data-target="#cargarComentario" class=" btn btn-warning btn-lg btn-block" style="font-size: 12px; margin:5px;">Cargar un comentario</button></div>
+                            <div class="col-md-6"><button data-toggle="modal" data-target="#cargarFp" class=" btn btn-warning btn-lg btn-block" style="font-size: 12px; margin:5px;">Cargar fuente paleográfica</button></div>
+                        </div>
+                    </div>   
+                    @endif
+
                 </div>
-              
+            
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <div class="col-md-7">
                 <h4 class="text-center"> Fuentes paleográficas</h4>
@@ -105,5 +131,54 @@
         </div>
     </div>
 </div>
+
+
+<!-- comentario -->
+<div class="modal fade" id="cargarComentario" tabindex="-1" role="dialog" aria-labelledby="cargarComentarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cargarComentarioLabel">Indique su comentario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Guardar comentario</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Fuente paleografica -->
+<div class="modal fade" id="cargarFp" tabindex="-1" role="dialog" aria-labelledby="cargarFpLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cargarFpLabel">Cargar fuente paleográfica</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="post" enctype="multipart/formdata"></form>
+            @csrf
+            <div class="form-group">
+                <label>Máximo, 5 imágenes</label>
+                <input type="file" name="subirImagenes[]" class="form-control" id="subirImagenes" multiple>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">cargar imagenes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @endsection
 

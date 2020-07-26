@@ -42,7 +42,7 @@ Route::group(['prefix' => 'sistema/jeroglifico/',  'middleware' => ['auth', 'val
     Route::post('foto-estandar', 'jeroglificoController@jq_anularFoto');
     Route::post('desactivarJeroglifico', 'jeroglificoController@jq_desactivarJero');
     Route::get('fuentes-paleograficas','jeroglificoController@mostrarFuentes')->name('sistema.jeroflifico.mostrarF');
-    Route::get('manejo-comentario/{id}','jeroglificoController@manejoComentario')->name('sistema.jeroglifico.comentario');
+    Route::get('manejo-comentario/udbod4t6y666sodso6odusfjb78t77sdgbfksdf08sfdugbosd9ftsgdfbsdfu{id}sdt789f','jeroglificoController@manejoComentario')->name('sistema.jeroglifico.comentario');
     Route::post('aprobar-comentario','jeroglificoController@jq_aprobarComentario');
     Route::post('eliminar-comentario','jeroglificoController@jq_eliminarComentario');
     Route::post('cambiar-paleografica','jeroglificoController@jq_cambiarFp');

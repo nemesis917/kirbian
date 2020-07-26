@@ -17,11 +17,19 @@ $(document).ready(function(){
                 success: function (resultado) {
                     $("#guia").html("")
                     console.log(resultado)
-                    $.each(resultado, function(index, val) {
-                         /* iterate through array or object */
-                        let catalogo= templateCatalogo(val)
-                        $("#guia").append(catalogo);
-                    });
+                    if (resultado[1] == "usuario") {
+                        $.each(resultado, function(index, val) {
+                            /* iterate through array or object */
+                           let catalogo= suscritoCatalogo(val)
+                           $("#guia").append(catalogo);
+                       });                        
+                    } else {
+                        $.each(resultado, function(index, val) {
+                            /* iterate through array or object */
+                           let catalogo= templateCatalogo(val)
+                           $("#guia").append(catalogo);
+                       });
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR)
@@ -340,18 +348,18 @@ function templateCatalogo(catalogoItem){
    let ruta_imagen = catalogoItem.ruta_imagen;
    let transliteracion = catalogoItem.transliteracion;
     return `
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
+    <div class="col-md-3">
+        <div class="card mb-3 shadow-sm">
             <img src="../${ruta_imagen}" class="img-fluid size-img-catalogo" alt="Imagenes de Catalogo - ${gandiner}">
             <div class="card-body">
                 <div class="box-flex">   
                     <div class="gandiner-title">Gandiner:</div>
                     <div class="gandiner-value">${gandiner}</div>
                 </div>
-                <div class="box-flex">   
+                <!--<div class="box-flex">   
                     <div class="gandiner-title">Transliteracion:</div>
-                    <div class="gandiner-value">${transliteracion}</div>
-                </div>
+                     <div class="gandiner-value transliteration">${transliteracion}</div> 
+                </div>-->
                 <div class="d-flex btn-group-catalogo">
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar un jeroglífico" data-toggle="modal" id="ver" data-target="#consultar">
@@ -363,7 +371,49 @@ function templateCatalogo(catalogoItem){
                         <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Eliminar un jeroglífico" id="eliminarJero">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </button>
-                        <a href="../sistema/jeroglifico/manejo-comentario/${id}">
+                        <a href="../sistema/jeroglifico/manejo-comentario/udbod4t6y666sodso6odusfjb78t77sdgbfksdf08sfdugbosd9ftsgdfbsdfu${id}sdt789f">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar los comentarios">
+                                Comentarios
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+};
+
+
+function suscritoCatalogo(catalogoItem){
+    /*
+        catalogo_id: 78
+        gandiner: "prueba-nacho"
+        id: 2
+        ruta_imagen: "imagenes/catalogo/78/440-jero-78-371.png"
+        transliteracion: "prueba-nacho"
+    */
+   let catalogo_id = catalogoItem.catalogo_id;
+   let gandiner = catalogoItem.gandiner;
+   let id = catalogoItem.id;
+   let ruta_imagen = catalogoItem.ruta_imagen;
+   let transliteracion = catalogoItem.transliteracion;
+    return `
+    <div class="col-md-3">
+        <div class="card mb-3 shadow-sm">
+            <img src="../${ruta_imagen}" class="img-fluid size-img-catalogo" alt="Imagenes de Catalogo - ${gandiner}">
+            <div class="card-body">
+                <div class="box-flex">   
+                    <div class="gandiner-title">Gandiner:</div>
+                    <div class="gandiner-value">${gandiner}</div>
+                </div>
+                <!--<div class="box-flex">   
+                    <div class="gandiner-title">Transliteracion:</div>
+                    <div class="gandiner-value transliteration">${transliteracion}</div>
+                </div>-->
+                <div class="d-flex btn-group-catalogo">
+                    <div class="btn-group">
+                        <a href="../sistema/jeroglifico/manejo-comentario/udbod4t6y666sodso6odusfjb78t77sdgbfksdf08sfdugbosd9ftsgdfbsdfu${id}sdt789f">
                             <button type="button" class="btn btn-sm btn-outline-secondary" value="${id}" title="Consultar los comentarios">
                                 Comentarios
                             </button>
